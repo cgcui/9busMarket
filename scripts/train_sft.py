@@ -48,7 +48,12 @@ class WeightedTrainer(Trainer):
         return (value, outputs) if return_outputs else value
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("--config", type=Path, required=True); ap.add_argument("--output", type=Path, required=True); args = ap.parse_args()
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--config", type=Path, required=True)
+    ap.add_argument("--output", type=Path, required=True)
+    ap.add_argument("--resume-from-checkpoint", type=Path)
+    ap.add_argument("--max-steps", type=int)
+    args = ap.parse_args()
     cfg = yaml.safe_load(args.config.read_text(encoding="utf-8"))
     if not torch.cuda.is_available(): raise RuntimeError("CUDA unavailable; refusing SFT on CPU")
     set_seed(int(cfg["seed"])); random.seed(int(cfg["seed"])); np.random.seed(int(cfg["seed"]))
@@ -60,11 +65,14 @@ def main():
     model = prepare_model_for_kbit_training(model); model = get_peft_model(model, LoraConfig(r=int(cfg["lora_r"]), lora_alpha=int(cfg["lora_alpha"]), lora_dropout=float(cfg["lora_dropout"]), bias="none", task_type="CAUSAL_LM", target_modules=found)); model.config.use_cache = False; model.gradient_checkpointing_enable(); model.enable_input_require_grads()
     args.output.mkdir(parents=True, exist_ok=True); (args.output / "checkpoints").mkdir(exist_ok=True)
     train = examples(tok, split_file("TRAIN"), int(cfg["max_seq_length"]))
-    targs = TrainingArguments(output_dir=str(args.output / "checkpoints"), per_device_train_batch_size=int(cfg["per_device_train_batch_size"]), gradient_accumulation_steps=int(cfg["gradient_accumulation_steps"]), learning_rate=float(cfg["learning_rate"]), lr_scheduler_type=cfg["lr_scheduler_type"], warmup_ratio=float(cfg["warmup_ratio"]), max_grad_norm=float(cfg["max_grad_norm"]), fp16=True, bf16=False, num_train_epochs=float(cfg["num_train_epochs"]), max_steps=int(cfg["max_steps"]), save_strategy=cfg["save_strategy"], logging_steps=int(cfg["logging_steps"]), report_to=[], remove_unused_columns=False, seed=int(cfg["seed"]))
-    trainer = WeightedTrainer(model=model, args=targs, train_dataset=train, data_collator=Collator(tok)); result = trainer.train(); trainer.save_model(str(args.output / "adapter")); tok.save_pretrained(str(args.output / "adapter"))
-    manifest = {"protocol": "Paper9Bus-Power-GV-GRPO-v3", "stage": "ESR_SFT", "model": cfg["model_name"], "config": cfg, "train_examples": len(train), "target_modules": found, "final_accessed": False, "result": result.metrics}
+    max_steps = int(args.max_steps if args.max_steps is not None else cfg["max_steps"])
+    batches_per_epoch = max(1, math.ceil(len(train) / (int(cfg["per_device_train_batch_size"]) * int(cfg["gradient_accumulation_steps"]))))
+    estimated_steps = max_steps if max_steps > 0 else math.ceil(batches_per_epoch * float(cfg["num_train_epochs"]))
+    warmup_steps = max(0, round(estimated_steps * float(cfg.get("warmup_ratio", 0.0))))
+    targs = TrainingArguments(output_dir=str(args.output / "checkpoints"), per_device_train_batch_size=int(cfg["per_device_train_batch_size"]), gradient_accumulation_steps=int(cfg["gradient_accumulation_steps"]), learning_rate=float(cfg["learning_rate"]), lr_scheduler_type=cfg["lr_scheduler_type"], warmup_steps=warmup_steps, max_grad_norm=float(cfg["max_grad_norm"]), fp16=True, bf16=False, num_train_epochs=float(cfg["num_train_epochs"]), max_steps=max_steps, save_strategy=cfg["save_strategy"], save_steps=int(cfg.get("save_steps", 100)), save_total_limit=cfg.get("save_total_limit"), logging_steps=int(cfg["logging_steps"]), report_to=[], remove_unused_columns=False, seed=int(cfg["seed"]), data_seed=int(cfg["seed"]))
+    trainer = WeightedTrainer(model=model, args=targs, train_dataset=train, data_collator=Collator(tok)); result = trainer.train(resume_from_checkpoint=str(args.resume_from_checkpoint) if args.resume_from_checkpoint else None); trainer.save_model(str(args.output / "adapter")); tok.save_pretrained(str(args.output / "adapter"))
+    manifest = {"protocol": "Paper9Bus-Power-GV-GRPO-v3", "stage": "ESR_SFT", "model": cfg["model_name"], "config": {**cfg, "resolved_max_steps": max_steps}, "seed": int(cfg["seed"]), "train_examples": len(train), "target_modules": found, "final_accessed": False, "result": result.metrics, "resume_from_checkpoint": str(args.resume_from_checkpoint) if args.resume_from_checkpoint else None}
     (args.output / "RUN_MANIFEST.json").write_text(json.dumps(manifest, indent=2, ensure_ascii=False, default=float), encoding="utf-8")
     print(json.dumps(manifest, indent=2, ensure_ascii=False, default=float))
 
 if __name__ == "__main__": main()
-

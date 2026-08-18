@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 
-REQUIRED = ("numpy", "pandas", "pyarrow", "yaml", "transformers", "accelerate", "peft")
+REQUIRED = ("numpy", "pandas", "pyarrow", "yaml", "transformers", "accelerate", "peft", "bitsandbytes")
 
 def main() -> int:
     missing = []
@@ -41,4 +41,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
