@@ -1,0 +1,13 @@
+{
+  "protocol": "Paper9Bus-Power-GV-GRPO-v3",
+  "benchmark": "Paper9Bus-3Gen-C3",
+  "train_examples": 1571,
+  "dev_examples": 533,
+  "cell_rows": 28800,
+  "final_accessed": false,
+  "files": {
+    "data\\core\\train.parquet": "1967c0c933a307c09a2fa9d897168af7f60a2ed6ddde90a3c2e0179caa9e1358",
+    "data\\core\\dev.parquet": "167e6a5ae8f640240d3da7f752f246773d9b947a526acacc44b724ee04a63131",
+    "data\\benchmark\\cell_bank.parquet": "3c6aa4802f8138a35f1d53b1a97ce4989924cfd3eea71b4ffaeae933c6415619"
+  }
+}

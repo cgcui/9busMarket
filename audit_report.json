@@ -1,0 +1,8 @@
+{
+  "protocol": "Paper9Bus-Power-GV-GRPO-v3",
+  "train_examples": 1571,
+  "dev_examples": 533,
+  "prompt_forbidden_hits": [],
+  "final_accessed": false,
+  "status": "PASS"
+}

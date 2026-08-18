@@ -1,0 +1,61 @@
+{
+  "benchmark": "Paper9Bus-3Gen-C3-Confirmatory-v1",
+  "development_excluded": "not_materialized_in_standalone_project",
+  "seed": 20260818,
+  "splits": {
+    "TRAIN": 600,
+    "DEV": 200,
+    "FINAL": 200
+  },
+  "arms": {
+    "PASSIVE": 1.0,
+    "ACTIVE_PROBE": 1.5
+  },
+  "actions": [
+    1.0,
+    1.05,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "epsilon_U": 1e-06,
+  "quantization": 1e-06,
+  "legal_fields": [
+    "g1_dispatch",
+    "g1_lmp",
+    "system_lmp_mean",
+    "system_lmp_min",
+    "system_lmp_max",
+    "system_lmp_spread",
+    "binding_branch_count",
+    "max_branch_utilization"
+  ],
+  "z_fields": [
+    "total_load",
+    "load_bus_1",
+    "load_bus_2",
+    "load_bus_3",
+    "load_bus_4",
+    "load_bus_5",
+    "load_bus_6",
+    "load_bus_7",
+    "load_bus_8",
+    "load_bus_9"
+  ],
+  "llm_called": false,
+  "final_touched": false,
+  "classifier_hyperparameters_frozen": {
+    "rf": {
+      "n_estimators": 300,
+      "random_state": 20260818
+    },
+    "xgb": {
+      "n_estimators": 300,
+      "max_depth": 4,
+      "learning_rate": 0.05,
+      "random_state": 20260818
+    }
+  },
+  "fingerprint_guard": 0.95
+}

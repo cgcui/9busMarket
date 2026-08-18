@@ -1,0 +1,13 @@
+model_name: Qwen/Qwen2.5-3B-Instruct
+seed: 42
+group_size: 4
+horizon: 4
+gamma: 0.95
+clip_eps: 0.20
+kl_coef: 0.05
+optimizer_steps: 100
+learning_rate: 0.000005
+max_grad_norm: 1.0
+max_seq_length: 512
+gradient_accumulation_steps: 1
+
