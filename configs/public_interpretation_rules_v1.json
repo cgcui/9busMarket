@@ -1,0 +1,28 @@
+{
+  "schema_version": "Public-Energy-State-v1",
+  "fit_split": "TRAIN",
+  "quantile_definition": {
+    "low": 0.3333333333333333,
+    "high": 0.6666666666666666,
+    "method": "numpy.quantile"
+  },
+  "load_level": {
+    "low": 12232.697,
+    "high": 14100.41
+  },
+  "price_dispersion": {
+    "low": 4.625,
+    "high": 8.97875
+  },
+  "tomorrow_demand_pressure": {
+    "low": -6.013278082006466,
+    "high": 2.8277673567099626
+  },
+  "fixed_rules": {
+    "network_stress": "binding_branch_count == 0 -> LOW; 1..2 -> ELEVATED; >2 -> HIGH",
+    "congestion_status": "binding_branch_count > 0 -> CONGESTED; otherwise UNCONGESTED",
+    "generator_utilization": "<0.40 LOW; 0.40..0.80 MEDIUM; >0.80 HIGH",
+    "net_load": "load_forecast - wind_forecast - solar_forecast, only when all legal inputs exist"
+  },
+  "final_accessed": false
+}

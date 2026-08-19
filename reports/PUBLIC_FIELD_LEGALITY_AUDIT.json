@@ -1,0 +1,29 @@
+{
+  "protocol": "Paper9Bus-Power-GV-GRPO-ISO2Y-Public-Energy-State-v1",
+  "rows": 17496,
+  "train_rows": 8760,
+  "dev_rows": 8736,
+  "date_min": "2020-01-01",
+  "date_max": "2021-12-31",
+  "source_counts": {
+    "forecast_rows": 140336,
+    "actual_rows": 17544,
+    "da_lmp_rows": 140352,
+    "rt_lmp_rows": 134400
+  },
+  "missing_rates": {
+    "current_load_mw": 0.0013717421124828531,
+    "load_factor": 0.0027434842249657062,
+    "historical_lmp_mean": 0.0013717421124828531,
+    "binding_branch_count": 0.4479881115683585,
+    "lmp_last_4h": 0.0013717421124828531
+  },
+  "forecast_timestamp_rule": "published_datetime_utc <= decision_cutoff_utc",
+  "future_realization_columns_present": false,
+  "forbidden_prompt_hits": [],
+  "target_day_dayahead_lmp_status": "UNAVAILABLE; source publication timestamp is not independently verified",
+  "renewable_forecast_status": "UNAVAILABLE; no synthetic wind/solar forecast emitted",
+  "own_generator_status": "UNAVAILABLE for ISO-NE public pack; no focal 9-bus generator identity fabricated",
+  "final_accessed": false,
+  "status": "PASS_PUBLIC_STATE_V1"
+}

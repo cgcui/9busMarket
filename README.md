@@ -4,6 +4,10 @@
 
 项目不依赖上层 ERCOT 仿真仓库、AMES Java 运行时或绝对路径，可以直接复制到云服务器运行。
 
+当前仓库同时保留原始 Paper9Bus v1 训练流程，并新增基于 ISO-NE 2020–2021 的 `Public-Energy-State-v1` 公共状态层。两年数据只作为公开外生时间序列；没有把 ISO-NE 未来真实值、hidden opponent、payoff 或 oracle 标签写入 9-bus prompt。
+
+问题定义和两年数据切分见 [PROBLEM_REFORMULATION_CN.md](PROBLEM_REFORMULATION_CN.md)。
+
 ## 训练流程
 
 ```text
@@ -51,6 +55,27 @@ python scripts/run_pipeline.py \
 
 smoke 的短 SFT 通常无法产生足够的策略差异，因此可能安全停止在 signal gate；这说明门控在工作，不代表正式训练失败。GV-GRPO 只有在 gate 为 `PASS_GRPO_SIGNAL` 时才会启动。
 
+## 两年公共能量状态层
+
+仓库已包含 `2020-01-01` 至 `2021-12-31` 的 17,496 条小时级公共状态卡：
+
+- cutoff 前可见的 ISO-NE 日前负荷预测（8 个区域、24 小时向量、峰值、爬坡）；
+- cutoff 前的系统负荷历史和最近 4 小时历史；
+- cutoff 前的历史实时 LMP 结构；目标日 DA-LMP 因缺少可验证发布时间不进入 prompt；
+- 已发布网络 binding 历史信号；
+- TRAIN-only 阈值和确定性语义解释；
+- 明确标记不可用的风/光日前预测和 focal 9-bus generator 状态，不填造。
+
+重新从工作区外部源构造时：
+
+```bash
+python scripts/build_public_energy_state_2y.py \
+  --source-root D:/code/ERCOTsimulation
+python scripts/audit_public_state_sufficiency.py
+```
+
+TRAIN 消融显示，原有 371-state collision class 在加入合法当前总负荷 MW 后，decision-conflicting class 从 1 降到 0；因此当前分类为 `LEGAL_PUBLIC_REPRESENTATION_SUFFICIENT`。这一步不生成新的 SFT 数据，也不运行 SFT/GRPO。
+
 ## 断点和输出
 
 - SFT：`runs/.../sft/adapter/`，Trainer checkpoint 在 `sft/checkpoints/`。
@@ -75,5 +100,7 @@ smoke 的短 SFT 通常无法产生足够的策略差异，因此可能安全停
 ├─ scripts/sample_candidates.py  # 候选采样
 ├─ scripts/evaluate_sft.py       # DEV/训练集严格评估
 ├─ scripts/train_gv_grpo.py      # GV-GRPO
-└─ src/paper9bus_gv_grpo/        # schema、reward、audit、signal gate
+├─ scripts/build_public_energy_state_2y.py  # 两年公共状态构造
+├─ scripts/audit_public_state_sufficiency.py # TRAIN 特征消融
+└─ src/paper9bus_gv_grpo/        # schema、reward、audit、public state、signal gate
 ```

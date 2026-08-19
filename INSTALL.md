@@ -87,6 +87,14 @@ pytest -q tests
 - `audit` 输出 `status: PASS`
 - 核心 schema 和 group advantage 测试通过
 
+两年公共状态层的审计也可以单独运行：
+
+```bash
+python scripts/audit_public_state_sufficiency.py
+```
+
+仓库已经包含构造后的 `data/public/isone_2y_public_energy_state.parquet`。如果需要从原始工作区重新生成，需要提供同时包含 `ercot_llm_bidding/data_external/isone` 和 ISO-NE LMP 文件的 `--source-root`；生成器会严格按 cutoff 选择 forecast vintage，并不会把没有可验证发布时间的目标日 DA-LMP 写入 prompt。
+
 ## 7. 完整训练
 
 推荐一键执行：
@@ -155,7 +163,25 @@ python scripts/train_sft.py \
 
 GV-GRPO 默认每 25 step 保存 checkpoint，可通过 `--checkpoint-every 10` 调整；最终 adapter 在 `runs/gv_grpo_seed42/adapter`。
 
-## 9. 常见问题
+## 9. Public-Energy-State-v1 输出
+
+两年状态卡及审计产物位于：
+
+```text
+data/public/isone_2y_public_energy_state.parquet
+data_examples/public_energy_state_examples.jsonl
+configs/public_feature_registry_v1.json
+configs/public_interpretation_rules_v1.json
+reports/PUBLIC_FIELD_LEGALITY_AUDIT.json
+reports/PUBLIC_STATE_FEATURE_SUFFICIENCY.json
+reports/PUBLIC_STATE_FEATURE_ABLATION.parquet
+reports/PUBLIC_STATE_COLLISION_CLASSES.parquet
+reports/PUBLIC_STATE_CARD_REPORT_CN.md
+```
+
+这批产物只用于公共观测审计和后续数据重构，尚未替换现有 SFT/GRPO 数据集。
+
+## 10. 常见问题
 
 ### CUDA unavailable
 

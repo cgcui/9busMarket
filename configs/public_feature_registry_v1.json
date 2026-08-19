@@ -1,0 +1,122 @@
+{
+  "schema_version": "Public-Energy-State-v1",
+  "decision_time_rule": "target local date D, cutoff D-1 10:00 America/New_York; only data published at or before cutoff may enter the state card",
+  "source_window": {
+    "start": "2020-01-01",
+    "end": "2021-12-31",
+    "timezone": "America/New_York",
+    "split_rule": "2020 local dates TRAIN; 2021 local dates DEV; no FINAL artifact"
+  },
+  "fields": {
+    "current_energy_state.total_load_mw": {
+      "status": "LEGAL_PUBLIC",
+      "source": "ISO-NE hourly system load API raw JSON, Load",
+      "availability": "latest observation at or before decision_cutoff",
+      "unit": "MW",
+      "derivation": "as-of join, no future value used"
+    },
+    "current_energy_state.load_factor": {
+      "status": "LEGAL_PUBLIC",
+      "source": "ISO-NE hourly system load API raw JSON, Load",
+      "availability": "requires 24 hourly observations ending at or before decision_cutoff",
+      "unit": "ratio",
+      "derivation": "mean(last 24h) / max(last 24h)"
+    },
+    "current_energy_state.bus_or_zone_loads_mw": {
+      "status": "UNAVAILABLE",
+      "source": "no verified as-of zonal realized load in the two-year public pack",
+      "availability": "not emitted; forecast zone loads are kept under day_ahead_load_forecast"
+    },
+    "day_ahead_load_forecast.hourly_load_mw": {
+      "status": "LEGAL_PUBLIC",
+      "source": "canonical/load_forecast_hourly_2020_2021.parquet",
+      "availability": "latest vintage with published_datetime_utc <= decision_cutoff",
+      "unit": "MW",
+      "derivation": "sum of eight reliability regions by target hour"
+    },
+    "day_ahead_load_forecast.forecast_zone_load_mw": {
+      "status": "LEGAL_PUBLIC",
+      "source": "canonical/load_forecast_hourly_2020_2021.parquet",
+      "availability": "same as hourly_load_mw",
+      "unit": "MW",
+      "derivation": "eight-region forecast vector"
+    },
+    "renewable_forecast.wind_mw": {
+      "status": "UNAVAILABLE",
+      "source": "no verified wind forecast joined at the frozen decision cutoff",
+      "availability": "not emitted"
+    },
+    "renewable_forecast.solar_mw": {
+      "status": "UNAVAILABLE",
+      "source": "available solar observations are historical, not a verified ex-ante solar forecast",
+      "availability": "not emitted"
+    },
+    "own_generator.dispatch_mw": {
+      "status": "UNAVAILABLE",
+      "source": "ISO-NE public source pack does not identify the focal 9-bus generator",
+      "availability": "not emitted"
+    },
+    "market.day_ahead_lmp_by_zone": {
+      "status": "UNAVAILABLE",
+      "source": "ISO-NE DAY_AHEAD_HOURLY load-zone LMP CSV has no independently verified publication timestamp in this pack",
+      "availability": "not emitted under the D-1 10:00 ET cutoff",
+      "unit": "USD/MWh",
+      "derivation": "must not substitute target-day DA-LMP for a verified as-of public observation"
+    },
+    "market.historical_lmp_mean_min_max_spread": {
+      "status": "LEGAL_PUBLIC",
+      "source": "ISO-NE real-time hourly load-zone LMP CSV",
+      "availability": "four historical hours strictly before decision_cutoff",
+      "unit": "USD/MWh",
+      "derivation": "mean across zones, then mean/min/max/spread across the four-hour history"
+    },
+    "network.binding_branch_count": {
+      "status": "LEGAL_PUBLIC",
+      "source": "published binding-event context, latest observation at or before cutoff",
+      "availability": "public history only",
+      "unit": "count",
+      "derivation": "binding constraint count; no flow/limit invented"
+    },
+    "network.max_branch_utilization": {
+      "status": "UNAVAILABLE",
+      "source": "binding-event source has no verified public flow and limit pair",
+      "availability": "not emitted"
+    },
+    "recent_history.load_last_4h_mw": {
+      "status": "LEGAL_PUBLIC",
+      "source": "ISO-NE hourly system load API raw JSON",
+      "availability": "four observations ending at or before cutoff",
+      "unit": "MW",
+      "derivation": "strictly historical as-of sequence"
+    },
+    "recent_history.lmp_last_4h": {
+      "status": "LEGAL_PUBLIC",
+      "source": "ISO-NE real-time hourly load-zone LMP CSV",
+      "availability": "four historical hours ending before cutoff",
+      "unit": "USD/MWh",
+      "derivation": "mean across zones; target-hour future values excluded"
+    },
+    "future_realized_load": {
+      "status": "HIDDEN_PRIVATE",
+      "source": "used only by audit code to test leakage, never copied into public data",
+      "availability": "future relative to decision_cutoff"
+    },
+    "payoff_regret_oracle_action": {
+      "status": "ORACLE_DERIVED",
+      "source": "benchmark cell bank / strategic simulator",
+      "availability": "evaluation or training reward only; never prompt input"
+    }
+  },
+  "forbidden_prompt_fields": [
+    "hidden opponent state",
+    "hidden opponent dispatch",
+    "hidden opponent profit",
+    "payoff",
+    "oracle action",
+    "regret",
+    "future realized load",
+    "future realized market outcome",
+    "focal action label"
+  ],
+  "final_accessed": false
+}
