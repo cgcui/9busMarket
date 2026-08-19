@@ -1,0 +1,32 @@
+{
+  "feature_set_id": "PAPER9BUS_PUBLIC_STATE_X1_V1",
+  "schema_version": "Paper9Bus-Public-State-v1",
+  "environment": "Paper9Bus-3Gen-C3",
+  "definition": "X1 = frozen X0 public observation + current total_load_mw",
+  "included_fields": [
+    "schema_version",
+    "environment",
+    "current_energy_state.total_load_mw",
+    "own_generator.dispatch_mw",
+    "own_generator.own_lmp",
+    "market.system_lmp_mean",
+    "market.system_lmp_min",
+    "market.system_lmp_max",
+    "market.lmp_spread",
+    "network.binding_branch_count",
+    "network.max_branch_utilization",
+    "public_interpretation.load_level",
+    "public_interpretation.price_dispersion",
+    "public_interpretation.network_stress",
+    "public_interpretation.congestion_status"
+  ],
+  "excluded_fields": [
+    "current_energy_state.bus_loads_mw",
+    "day_ahead_load_forecast",
+    "renewable_forecast",
+    "hidden_opponent_state",
+    "payoff_oracle_regret_action"
+  ],
+  "final_accessed": false,
+  "grpo_started": false
+}

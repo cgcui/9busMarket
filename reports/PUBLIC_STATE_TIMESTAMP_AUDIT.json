@@ -1,0 +1,39 @@
+{
+  "stage": "T37_PUBLIC_STATE_TIMESTAMP_AUDIT",
+  "rows": 17496,
+  "train_rows": 8760,
+  "forecast_publish_le_cutoff": true,
+  "forecast_publish_violations": 0,
+  "forecast_target_after_cutoff": 17496,
+  "source_code_has_forecast_cutoff_check": true,
+  "source_code_has_asof_history_rule": true,
+  "timestamp_examples": [
+    {
+      "target_local_date": "2020-01-01",
+      "decision_cutoff_utc": "2019-12-31 15:00:00+00:00",
+      "forecast_publish_utc": "2019-12-31 09:37:05+00:00",
+      "target_hour_utc": "2020-01-01 05:00:00+00:00"
+    },
+    {
+      "target_local_date": "2020-01-01",
+      "decision_cutoff_utc": "2019-12-31 15:00:00+00:00",
+      "forecast_publish_utc": "2019-12-31 09:37:05+00:00",
+      "target_hour_utc": "2020-01-01 06:00:00+00:00"
+    },
+    {
+      "target_local_date": "2020-01-01",
+      "decision_cutoff_utc": "2019-12-31 15:00:00+00:00",
+      "forecast_publish_utc": "2019-12-31 09:37:05+00:00",
+      "target_hour_utc": "2020-01-01 07:00:00+00:00"
+    },
+    {
+      "target_local_date": "2020-01-01",
+      "decision_cutoff_utc": "2019-12-31 15:00:00+00:00",
+      "forecast_publish_utc": "2019-12-31 09:37:05+00:00",
+      "target_hour_utc": "2020-01-01 08:00:00+00:00"
+    }
+  ],
+  "serialized_source_timestamp_limitation": "current/history source timestamps are enforced by the as-of builder but not stored as separate per-feature columns",
+  "future_leakage": false,
+  "final_accessed": false
+}

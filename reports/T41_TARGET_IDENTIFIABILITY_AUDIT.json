@@ -1,0 +1,44 @@
+{
+  "stage": "T41_TARGET_IDENTIFIABILITY_V1",
+  "representation": "Paper9Bus-Public-State-v1 X1",
+  "splits": {
+    "TRAIN": 1571,
+    "DEV": 533
+  },
+  "visible_prompt_classes": 1808,
+  "physical_examples": 2104,
+  "deterministic_conflict_classes": 0,
+  "max_unique_targets": {
+    "belief": 1,
+    "game": 1,
+    "counterfactual": 1,
+    "intent": 1,
+    "action": 1,
+    "plan": 1,
+    "confidence": 1
+  },
+  "conditional_entropy_nats": {
+    "H_b_given_x": 0.0,
+    "H_a_given_x": 0.0,
+    "H_p_given_x": 0.0
+  },
+  "old_371_collision_present": false,
+  "observation_conditioned_action_rule_conflicts": 0,
+  "visible_prompt_action_plan_conflicts": 0,
+  "six_action_grid_frozen": [
+    1.0,
+    1.05,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "target_contract": "Core-ESR-v3 compact JSON; six-state belief retained",
+  "classification": "PASS_TARGET_IDENTIFIABILITY_V1",
+  "details": {
+    "action_rule_conflicts_preview": [],
+    "plan_conflicts_preview": []
+  },
+  "final_accessed": false,
+  "grpo_started": false
+}

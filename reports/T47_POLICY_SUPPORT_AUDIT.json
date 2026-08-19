@@ -1,0 +1,50 @@
+{
+  "stage": "T47B_POLICY_SUPPORT_AUDIT",
+  "checkpoint": "D:\\ccg\\code\\paper9bus_gv_grpo\\runs\\qwen3_1p7b_public_state_v1_sft_seed42\\checkpoint_epoch1",
+  "model": "Qwen/Qwen3-1.7B-Base",
+  "groups": 64,
+  "action_values": [
+    1.0,
+    1.05,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "temperature": 0.9,
+  "top_p": 0.95,
+  "action_prefix": "{\"a\":",
+  "mean_raw_top1_probability": 0.9956685291776168,
+  "mean_raw_action_entropy": 0.027883682226969138,
+  "mean_raw_effective_support": 1.0290099277547184,
+  "mean_runtime_top1_probability": 1.0,
+  "mean_runtime_action_entropy": 0.0,
+  "mean_runtime_effective_support": 1.0,
+  "mean_runtime_non_top1_probability_mass": 0.0,
+  "theoretical_k4": {
+    "mean_p_vary_k4": 0.0,
+    "median_p_vary_k4": 0.0,
+    "p10_p_vary_k4": 0.0,
+    "p90_p_vary_k4": 0.0,
+    "max_p_vary_k4": 0.0,
+    "states_p_vary_above_threshold": {
+      "0.01": 0,
+      "0.05": 0,
+      "0.1": 0,
+      "0.25": 0
+    },
+    "expected_number_of_varying_groups": 0.0,
+    "p_observe_zero_varying_groups": 1.0,
+    "log_p_observe_zero_varying_groups": 0.0,
+    "observed_t46_varying_groups": 0,
+    "observed_t46_total_groups": 64
+  },
+  "economic": {
+    "mean_expected_regret_under_pi_runtime": 0.7646519981093824,
+    "mean_non_top1_mass_on_near_optimal_actions": 0.96875,
+    "mean_non_top1_mass_on_high_regret_actions": 0.03125
+  },
+  "classification": "MODEL_POLICY_SUPPORT_COLLAPSE",
+  "final_accessed": false,
+  "grpo_started": false
+}

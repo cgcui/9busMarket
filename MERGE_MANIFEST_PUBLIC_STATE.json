@@ -1,0 +1,39 @@
+{
+  "merge_type": "SAFE_PUBLIC_STATE_UPDATE",
+  "source_repository": "git@github.com:cgcui/9busMarket.git",
+  "source_commit": "6be1ca74ccdd7d2762ae3290a9838953d3174703",
+  "source_commit_message": "Add two-year public energy state reformulation",
+  "target_workspace": "paper9bus_gv_grpo",
+  "strategy": {
+    "core_data": "preserved; train/dev/context/cell_bank hashes match source",
+    "historical_runs_and_audits": "preserved",
+    "same_name_training_files": "local recovery branch preserved with upstream resume/checkpoint and frozen-old-policy fixes merged",
+    "public_state_files": "added from source repository",
+    "original_six_action_benchmark": "preserved and not rewritten",
+    "final_accessed": false,
+    "grpo_started": false
+  },
+  "added_paths": [
+    "INSTALL.md",
+    "PROBLEM_REFORMULATION_CN.md",
+    "configs/gv_grpo_smoke.yaml",
+    "configs/public_feature_registry_v1.json",
+    "configs/public_interpretation_rules_v1.json",
+    "configs/sft_smoke_qwen3.yaml",
+    "data/public/isone_2y_public_energy_state.parquet",
+    "data_examples/public_energy_state_examples.jsonl",
+    "reports/PUBLIC_FIELD_LEGALITY_AUDIT.json",
+    "reports/PUBLIC_FIELD_LEGALITY_REPORT_CN.md",
+    "reports/PUBLIC_STATE_CARD_REPORT_CN.md",
+    "reports/PUBLIC_STATE_COLLISION_CLASSES.parquet",
+    "reports/PUBLIC_STATE_FEATURE_ABLATION.parquet",
+    "reports/PUBLIC_STATE_FEATURE_SUFFICIENCY.json",
+    "scripts/audit_public_state_sufficiency.py",
+    "scripts/build_public_energy_state_2y.py",
+    "scripts/evaluate_sft.py",
+    "scripts/preflight.py",
+    "scripts/run_pipeline.py",
+    "src/paper9bus_gv_grpo/public_state.py",
+    "tests/test_public_state.py"
+  ]
+}

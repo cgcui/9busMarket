@@ -1,0 +1,98 @@
+{
+  "environment": "Paper9Bus",
+  "classification": "PASS_PUBLIC_STATE_V1_FREEZE",
+  "selected_representation": "X1",
+  "selected_feature_set": "X0 + current total_load_mw",
+  "x0": {
+    "environment": "Paper9Bus",
+    "representation": "X0",
+    "status": "IMPLEMENTED",
+    "description": "original model-visible public observation",
+    "feature_fields": [
+      "public_observation"
+    ],
+    "visible_classes": 972,
+    "physical_collision_classes": 1,
+    "decision_conflicting_classes": 1,
+    "belief_conflicting_classes": 0,
+    "plan_conflicting_classes": 1,
+    "H_action_given_X_nats": 0.03372332779287735,
+    "H_belief_given_X_nats": 0.0,
+    "H_plan_given_X_nats": 0.03372332779287735,
+    "prompt_token_length": {
+      "available": true,
+      "min": 83,
+      "median": 96.0,
+      "p90": 102.0,
+      "max": 110
+    },
+    "train_only": true,
+    "final_accessed": false
+  },
+  "x1": {
+    "environment": "Paper9Bus",
+    "representation": "X1",
+    "status": "IMPLEMENTED",
+    "description": "X0 + current total_load_mw",
+    "feature_fields": [
+      "public_observation",
+      "current_energy_state.total_load_mw"
+    ],
+    "visible_classes": 1342,
+    "physical_collision_classes": 0,
+    "decision_conflicting_classes": 0,
+    "belief_conflicting_classes": 0,
+    "plan_conflicting_classes": 0,
+    "H_action_given_X_nats": 0.0,
+    "H_belief_given_X_nats": 0.0,
+    "H_plan_given_X_nats": 0.0,
+    "prompt_token_length": {
+      "available": true,
+      "min": 102,
+      "median": 115.0,
+      "p90": 121.0,
+      "max": 129
+    },
+    "train_only": true,
+    "final_accessed": false
+  },
+  "x2": {
+    "environment": "Paper9Bus",
+    "representation": "X2",
+    "status": "IMPLEMENTED",
+    "description": "X1 + current public 9-bus bus-load distribution",
+    "feature_fields": [
+      "public_observation",
+      "current_energy_state.total_load_mw",
+      "current_energy_state.bus_loads_mw"
+    ],
+    "visible_classes": 1342,
+    "physical_collision_classes": 0,
+    "decision_conflicting_classes": 0,
+    "belief_conflicting_classes": 0,
+    "plan_conflicting_classes": 0,
+    "H_action_given_X_nats": 0.0,
+    "H_belief_given_X_nats": 0.0,
+    "H_plan_given_X_nats": 0.0,
+    "prompt_token_length": {
+      "available": true,
+      "min": 158,
+      "median": 179.0,
+      "p90": 187.0,
+      "max": 195
+    },
+    "train_only": true,
+    "final_accessed": false
+  },
+  "minimality_test": {
+    "without_total_load_recreates_conflict": true,
+    "with_total_load_conflict_absent": true,
+    "informative": true
+  },
+  "deterministic_reproduction": true,
+  "hidden_leakage": false,
+  "future_leakage": false,
+  "sft_run": false,
+  "grpo_run": false,
+  "final_accessed": false
+}

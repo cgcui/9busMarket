@@ -1,0 +1,32 @@
+{
+  "stage": "T46.5_AUDIT_HARDENING_TESTS",
+  "pytest": {
+    "command": [
+      "D:\\conda-envs\\bnfcontrol\\python.exe",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "returncode": 0,
+    "stdout": "..................................                                       [100%]\n34 passed in 5.94s\n",
+    "stderr": ""
+  },
+  "compileall": {
+    "command": [
+      "D:\\conda-envs\\bnfcontrol\\python.exe",
+      "-m",
+      "compileall",
+      "-q",
+      "src",
+      "scripts",
+      "tests"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "new_test_count": 19,
+  "existing_regression_count": 15,
+  "pass": true,
+  "gpu_training_started": false
+}

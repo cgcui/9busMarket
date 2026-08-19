@@ -1,0 +1,119 @@
+{
+  "schema_version": "Paper9Bus-Public-State-v1",
+  "environment": "Paper9Bus-3Gen-C3",
+  "decision_time": "frozen benchmark observation; no synthetic day-ahead chronology",
+  "fields": {
+    "current_energy_state.total_load_mw": {
+      "status": "LEGAL_PUBLIC_DIRECT",
+      "source_file": "data/benchmark/cell_bank.parquet",
+      "source_column": "total_load",
+      "unit": "MW",
+      "physical_meaning": "current total system load for the frozen public physical state",
+      "observation_timestamp": "benchmark state observation",
+      "availability_timestamp": "same frozen observation",
+      "direct_or_derived": "direct",
+      "leakage_status": "no hidden opponent/payoff/oracle field"
+    },
+    "current_energy_state.bus_loads_mw": {
+      "status": "LEGAL_PUBLIC_DIRECT",
+      "source_file": "data/benchmark/cell_bank.parquet",
+      "source_column": "load_bus_1..load_bus_9",
+      "unit": "MW per bus",
+      "physical_meaning": "current public 9-bus load distribution",
+      "observation_timestamp": "benchmark state observation",
+      "availability_timestamp": "same frozen observation",
+      "direct_or_derived": "direct",
+      "leakage_status": "not used as hidden opponent state"
+    },
+    "own_generator.dispatch_mw": {
+      "status": "LEGAL_PUBLIC_DIRECT",
+      "source_file": "data/core/train_context.parquet",
+      "source_column": "observation_json.g1_dispatch",
+      "unit": "MW",
+      "physical_meaning": "model-visible focal public dispatch observation",
+      "observation_timestamp": "frozen benchmark observation",
+      "availability_timestamp": "same frozen observation",
+      "direct_or_derived": "direct",
+      "leakage_status": "already present in X0"
+    },
+    "own_generator.own_lmp": {
+      "status": "LEGAL_PUBLIC_DIRECT",
+      "source_file": "data/core/train_context.parquet",
+      "source_column": "observation_json.g1_lmp",
+      "unit": "USD/MWh",
+      "physical_meaning": "model-visible focal public LMP observation",
+      "observation_timestamp": "frozen benchmark observation",
+      "availability_timestamp": "same frozen observation",
+      "direct_or_derived": "direct",
+      "leakage_status": "already present in X0"
+    },
+    "market.system_lmp_mean_min_max_spread": {
+      "status": "LEGAL_PUBLIC_DIRECT",
+      "source_file": "data/core/train_context.parquet",
+      "source_column": "observation_json.system_lmp_mean/min/max/spread",
+      "unit": "USD/MWh",
+      "physical_meaning": "model-visible public system price structure",
+      "observation_timestamp": "frozen benchmark observation",
+      "availability_timestamp": "same frozen observation",
+      "direct_or_derived": "direct in frozen observation",
+      "leakage_status": "already present in X0"
+    },
+    "network.binding_branch_count": {
+      "status": "LEGAL_PUBLIC_DIRECT",
+      "source_file": "data/core/train_context.parquet",
+      "source_column": "observation_json.binding_branch_count",
+      "unit": "count",
+      "physical_meaning": "model-visible public congestion indicator",
+      "observation_timestamp": "frozen benchmark observation",
+      "availability_timestamp": "same frozen observation",
+      "direct_or_derived": "direct",
+      "leakage_status": "already present in X0"
+    },
+    "network.max_branch_utilization": {
+      "status": "LEGAL_PUBLIC_DIRECT",
+      "source_file": "data/core/train_context.parquet",
+      "source_column": "observation_json.max_branch_utilization",
+      "unit": "ratio",
+      "physical_meaning": "model-visible public network utilization indicator",
+      "observation_timestamp": "frozen benchmark observation",
+      "availability_timestamp": "same frozen observation",
+      "direct_or_derived": "direct",
+      "leakage_status": "already present in X0"
+    },
+    "day_ahead_forecast": {
+      "status": "UNAVAILABLE",
+      "source_file": "none in frozen Paper9Bus benchmark",
+      "source_column": "none",
+      "unit": "N/A",
+      "physical_meaning": "no frozen Paper9Bus forecast chronology exists",
+      "observation_timestamp": "N/A",
+      "availability_timestamp": "N/A",
+      "direct_or_derived": "unavailable",
+      "leakage_status": "must not be fabricated"
+    },
+    "hidden_opponent_state": {
+      "status": "HIDDEN_PRIVATE",
+      "source_file": "data/benchmark/cell_bank.parquet",
+      "source_column": "k_g3",
+      "unit": "markup state",
+      "physical_meaning": "hidden opponent state used only for offline reward/provenance",
+      "observation_timestamp": "not model-visible",
+      "availability_timestamp": "not model-visible",
+      "direct_or_derived": "private",
+      "leakage_status": "forbidden prompt field"
+    },
+    "payoff_oracle_regret_action": {
+      "status": "ORACLE_DERIVED",
+      "source_file": "data/benchmark/cell_bank.parquet",
+      "source_column": "profit_g1 / argmax action / regret",
+      "unit": "N/A",
+      "physical_meaning": "offline reward or evaluation information",
+      "observation_timestamp": "not model-visible",
+      "availability_timestamp": "not model-visible",
+      "direct_or_derived": "oracle-derived",
+      "leakage_status": "forbidden prompt field"
+    }
+  },
+  "minimality_candidate": "X0 + current_energy_state.total_load_mw",
+  "final_accessed": false
+}

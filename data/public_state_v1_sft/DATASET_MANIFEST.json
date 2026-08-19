@@ -1,0 +1,43 @@
+{
+  "dataset": "Paper9Bus-Public-State-v1-SFT",
+  "representation": "Paper9Bus-Public-State-v1 X1",
+  "source_splits": {
+    "TRAIN": "data/core/train.parquet + train_context.parquet",
+    "DEV": "data/core/dev.parquet + dev_context.parquet"
+  },
+  "action_grid": [
+    1.0,
+    1.05,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "target_schema": "Power-ESR-Core-v3",
+  "target_rule": "observation-conditioned Bayes action over frozen structural class members; plan deterministic by visible prompt and action",
+  "deduplication": "exact prompt hash + exact target only",
+  "counts": {
+    "TRAIN": {
+      "source_rows": 1571,
+      "written_rows": 1342,
+      "file": "train.jsonl",
+      "sha256": "5073618d7abb25c2798944231d94680aba3a27f8373f3a2ab6cf663800dd06cc"
+    },
+    "DEV": {
+      "source_rows": 533,
+      "written_rows": 466,
+      "file": "dev.jsonl",
+      "sha256": "3b9b4035542e572571167469c12a5537382aa7885c1a2e72b9cb9685d8eb79c3"
+    }
+  },
+  "files": {
+    "train.jsonl": {
+      "sha256": "5073618d7abb25c2798944231d94680aba3a27f8373f3a2ab6cf663800dd06cc"
+    },
+    "dev.jsonl": {
+      "sha256": "3b9b4035542e572571167469c12a5537382aa7885c1a2e72b9cb9685d8eb79c3"
+    }
+  },
+  "final_accessed": false,
+  "grpo_started": false
+}

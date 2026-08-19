@@ -1,0 +1,158 @@
+{
+  "stage": "T45_CHECKPOINT_AND_INTERFACE_GATE",
+  "model": "Qwen/Qwen3-1.7B-Base",
+  "selection_hierarchy": [
+    "maximize strict validity",
+    "minimize truncation",
+    "maximize belief validity",
+    "maximize plan validity",
+    "maximize action-plan consistency",
+    "maximize EOS"
+  ],
+  "dev_results": [
+    {
+      "rows": 466,
+      "strict_valid_rate": 1.0,
+      "json_valid_rate": 1.0,
+      "eos_rate": 1.0,
+      "truncation_rate": 0.0,
+      "belief_valid_rate": 1.0,
+      "game_valid_rate": 1.0,
+      "counterfactual_valid_rate": 1.0,
+      "plan_valid_rate": 1.0,
+      "action_valid_rate": 1.0,
+      "action_plan_consistency_rate": 0.9828326180257511,
+      "hidden_leakage_rate": 0.0,
+      "exact_field_rates": {
+        "b": 1.0,
+        "g": 0.944206008583691,
+        "cf": 1.0,
+        "i": 1.0,
+        "a": 0.9828326180257511,
+        "p": 0.9828326180257511,
+        "q": 1.0
+      },
+      "failure_category_counts": {
+        "REPETITION": 200,
+        "VALID": 266
+      },
+      "epoch": 1,
+      "checkpoint": "D:\\ccg\\code\\paper9bus_gv_grpo\\runs\\qwen3_1p7b_public_state_v1_sft_seed42\\checkpoint_epoch1",
+      "checkpoint_hashes": {
+        "adapter_config.json": "e1350628b61e41ee17bef9203180016a6632de700ba2f6f7344312f332d3ea74",
+        "adapter_model.safetensors": "403da5b44439e7ba8e22591ef7c9226555a7d4b0009db5984f415ba26a118f58",
+        "added_tokens.json": "79f6ec6fcc423d3a82bfac8b9033b1daac7b7bce06a5f5f441637b480cc605de",
+        "CHECKPOINT_METADATA.json": "fbcb722c96ed56e551df139ea82e6eaa7198bf317e164a15ce7c05de39b177d8",
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "README.md": "9d1efb7b1873689fd4b4728d0e719c1e3deb655943f7e6d9a50b7d28fb376873",
+        "special_tokens_map.json": "64f704fc88691ec8652d7fa2f7a5ae00d4387f618672ec2c977630231fa8c60e",
+        "tokenizer.json": "8a9a0caa00d7eef357ec61a396b1be03ab8ee2c14efd9626763478187a09873d",
+        "tokenizer_config.json": "0f2139a6eeb7389de9c2c3f08360f47b604112a03358071cb73a4e7c40dfc912",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      }
+    },
+    {
+      "rows": 466,
+      "strict_valid_rate": 1.0,
+      "json_valid_rate": 1.0,
+      "eos_rate": 1.0,
+      "truncation_rate": 0.0,
+      "belief_valid_rate": 1.0,
+      "game_valid_rate": 1.0,
+      "counterfactual_valid_rate": 1.0,
+      "plan_valid_rate": 1.0,
+      "action_valid_rate": 1.0,
+      "action_plan_consistency_rate": 0.9828326180257511,
+      "hidden_leakage_rate": 0.0,
+      "exact_field_rates": {
+        "b": 1.0,
+        "g": 0.907725321888412,
+        "cf": 1.0,
+        "i": 1.0,
+        "a": 0.9828326180257511,
+        "p": 0.9828326180257511,
+        "q": 1.0
+      },
+      "failure_category_counts": {
+        "REPETITION": 200,
+        "VALID": 266
+      },
+      "epoch": 2,
+      "checkpoint": "D:\\ccg\\code\\paper9bus_gv_grpo\\runs\\qwen3_1p7b_public_state_v1_sft_seed42\\checkpoint_epoch2",
+      "checkpoint_hashes": {
+        "adapter_config.json": "e1350628b61e41ee17bef9203180016a6632de700ba2f6f7344312f332d3ea74",
+        "adapter_model.safetensors": "45f1cfe0f5669eb68830ffc84f2fb7fb3984fcb0900dbdb0ff336168d57954c2",
+        "added_tokens.json": "79f6ec6fcc423d3a82bfac8b9033b1daac7b7bce06a5f5f441637b480cc605de",
+        "CHECKPOINT_METADATA.json": "5a4f12cb4f3018a95e2d0905d3ec41253cfe838a20ceae19fd97a10a80c56490",
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "README.md": "9d1efb7b1873689fd4b4728d0e719c1e3deb655943f7e6d9a50b7d28fb376873",
+        "special_tokens_map.json": "64f704fc88691ec8652d7fa2f7a5ae00d4387f618672ec2c977630231fa8c60e",
+        "tokenizer.json": "8a9a0caa00d7eef357ec61a396b1be03ab8ee2c14efd9626763478187a09873d",
+        "tokenizer_config.json": "0f2139a6eeb7389de9c2c3f08360f47b604112a03358071cb73a4e7c40dfc912",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      }
+    },
+    {
+      "rows": 466,
+      "strict_valid_rate": 1.0,
+      "json_valid_rate": 1.0,
+      "eos_rate": 1.0,
+      "truncation_rate": 0.0,
+      "belief_valid_rate": 1.0,
+      "game_valid_rate": 1.0,
+      "counterfactual_valid_rate": 1.0,
+      "plan_valid_rate": 1.0,
+      "action_valid_rate": 1.0,
+      "action_plan_consistency_rate": 0.9828326180257511,
+      "hidden_leakage_rate": 0.0,
+      "exact_field_rates": {
+        "b": 1.0,
+        "g": 0.9656652360515021,
+        "cf": 1.0,
+        "i": 1.0,
+        "a": 0.9828326180257511,
+        "p": 0.9828326180257511,
+        "q": 1.0
+      },
+      "failure_category_counts": {
+        "REPETITION": 200,
+        "VALID": 266
+      },
+      "epoch": 3,
+      "checkpoint": "D:\\ccg\\code\\paper9bus_gv_grpo\\runs\\qwen3_1p7b_public_state_v1_sft_seed42\\checkpoint_epoch3",
+      "checkpoint_hashes": {
+        "adapter_config.json": "e1350628b61e41ee17bef9203180016a6632de700ba2f6f7344312f332d3ea74",
+        "adapter_model.safetensors": "b1f0d494619a281c6bac03654b11e1f42ec5d4a3eae4a9af072c3d90088f00f7",
+        "added_tokens.json": "79f6ec6fcc423d3a82bfac8b9033b1daac7b7bce06a5f5f441637b480cc605de",
+        "CHECKPOINT_METADATA.json": "959a7363fec0210107120c493bdb76b90709e8bcce6e6283e065852dda03feb6",
+        "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+        "README.md": "9d1efb7b1873689fd4b4728d0e719c1e3deb655943f7e6d9a50b7d28fb376873",
+        "special_tokens_map.json": "64f704fc88691ec8652d7fa2f7a5ae00d4387f618672ec2c977630231fa8c60e",
+        "tokenizer.json": "8a9a0caa00d7eef357ec61a396b1be03ab8ee2c14efd9626763478187a09873d",
+        "tokenizer_config.json": "0f2139a6eeb7389de9c2c3f08360f47b604112a03358071cb73a4e7c40dfc912",
+        "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+      }
+    }
+  ],
+  "ranking_epochs": [
+    1,
+    2,
+    3
+  ],
+  "selected_epoch": 1,
+  "selected_checkpoint": "D:\\ccg\\code\\paper9bus_gv_grpo\\runs\\qwen3_1p7b_public_state_v1_sft_seed42\\checkpoint_epoch1",
+  "checkpoint_hashes": {
+    "adapter_config.json": "e1350628b61e41ee17bef9203180016a6632de700ba2f6f7344312f332d3ea74",
+    "adapter_model.safetensors": "403da5b44439e7ba8e22591ef7c9226555a7d4b0009db5984f415ba26a118f58",
+    "added_tokens.json": "79f6ec6fcc423d3a82bfac8b9033b1daac7b7bce06a5f5f441637b480cc605de",
+    "CHECKPOINT_METADATA.json": "fbcb722c96ed56e551df139ea82e6eaa7198bf317e164a15ce7c05de39b177d8",
+    "merges.txt": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+    "README.md": "9d1efb7b1873689fd4b4728d0e719c1e3deb655943f7e6d9a50b7d28fb376873",
+    "special_tokens_map.json": "64f704fc88691ec8652d7fa2f7a5ae00d4387f618672ec2c977630231fa8c60e",
+    "tokenizer.json": "8a9a0caa00d7eef357ec61a396b1be03ab8ee2c14efd9626763478187a09873d",
+    "tokenizer_config.json": "0f2139a6eeb7389de9c2c3f08360f47b604112a03358071cb73a4e7c40dfc912",
+    "vocab.json": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910"
+  },
+  "final_accessed": false,
+  "grpo_started": false
+}

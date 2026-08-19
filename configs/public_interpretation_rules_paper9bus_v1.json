@@ -1,0 +1,24 @@
+{
+  "schema_version": "Paper9Bus-Public-State-v1",
+  "environment": "Paper9Bus-3Gen-C3",
+  "fit_split": "TRAIN",
+  "quantile_definition": {
+    "low": 0.3333333333333333,
+    "high": 0.6666666666666666,
+    "method": "numpy.quantile"
+  },
+  "load_level": {
+    "low": 283.2647030955,
+    "high": 366.38065724399996
+  },
+  "price_dispersion": {
+    "low": 10.0,
+    "high": 20.0
+  },
+  "fixed_rules": {
+    "generator_utilization": "<0.40 LOW; 0.40..0.80 MEDIUM; >0.80 HIGH",
+    "network_stress": "max utilization <0.80 LOW; <0.95 ELEVATED; otherwise HIGH",
+    "congestion_status": "binding_branch_count > 0 -> CONGESTED; otherwise UNCONGESTED"
+  },
+  "final_accessed": false
+}

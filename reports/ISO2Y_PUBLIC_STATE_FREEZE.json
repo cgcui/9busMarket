@@ -1,0 +1,234 @@
+{
+  "environment": "ISO2Y",
+  "classification": "PASS_PUBLIC_STATE_V1_FREEZE",
+  "implemented_representations": [
+    {
+      "environment": "ISO2Y",
+      "representation": "X0",
+      "status": "IMPLEMENTED",
+      "description": "base public chronology",
+      "feature_fields": [
+        "target_local_date",
+        "target_he"
+      ],
+      "visible_classes": 8760,
+      "prompt_token_length": {
+        "available": true,
+        "min": 21,
+        "median": 22.0,
+        "p90": 22.0,
+        "max": 22
+      },
+      "train_only": true,
+      "target_metrics": "NOT_APPLICABLE_NO_STRATEGIC_LABELS",
+      "final_accessed": false
+    },
+    {
+      "environment": "ISO2Y",
+      "representation": "X1",
+      "status": "IMPLEMENTED",
+      "description": "+ current load",
+      "feature_fields": [
+        "current_load_mw"
+      ],
+      "visible_classes": 8760,
+      "prompt_token_length": {
+        "available": true,
+        "min": 28,
+        "median": 37.0,
+        "p90": 37.0,
+        "max": 37
+      },
+      "train_only": true,
+      "target_metrics": "NOT_APPLICABLE_NO_STRATEGIC_LABELS",
+      "final_accessed": false
+    },
+    {
+      "environment": "ISO2Y",
+      "representation": "X2",
+      "status": "IMPLEMENTED",
+      "description": "+ recent load history",
+      "feature_fields": [
+        "load_last_4h_mw"
+      ],
+      "visible_classes": 8760,
+      "prompt_token_length": {
+        "available": true,
+        "min": 38,
+        "median": 84.0,
+        "p90": 85.0,
+        "max": 85
+      },
+      "train_only": true,
+      "target_metrics": "NOT_APPLICABLE_NO_STRATEGIC_LABELS",
+      "final_accessed": false
+    },
+    {
+      "environment": "ISO2Y",
+      "representation": "X3",
+      "status": "IMPLEMENTED",
+      "description": "+ price history",
+      "feature_fields": [
+        "lmp_last_4h"
+      ],
+      "visible_classes": 8760,
+      "prompt_token_length": {
+        "available": true,
+        "min": 47,
+        "median": 122.0,
+        "p90": 134.0,
+        "max": 157
+      },
+      "train_only": true,
+      "target_metrics": "NOT_APPLICABLE_NO_STRATEGIC_LABELS",
+      "final_accessed": false
+    },
+    {
+      "environment": "ISO2Y",
+      "representation": "X4",
+      "status": "IMPLEMENTED",
+      "description": "+ legal congestion/network",
+      "feature_fields": [
+        "binding_branch_count",
+        "binding_event_count",
+        "network_signal"
+      ],
+      "visible_classes": 8760,
+      "prompt_token_length": {
+        "available": true,
+        "min": 70,
+        "median": 144.0,
+        "p90": 156.0,
+        "max": 178
+      },
+      "train_only": true,
+      "target_metrics": "NOT_APPLICABLE_NO_STRATEGIC_LABELS",
+      "final_accessed": false
+    },
+    {
+      "environment": "ISO2Y",
+      "representation": "X5",
+      "status": "IMPLEMENTED",
+      "description": "+ verified day-ahead load forecast",
+      "feature_fields": [
+        "hourly_load_mw"
+      ],
+      "visible_classes": 8760,
+      "prompt_token_length": {
+        "available": true,
+        "min": 294,
+        "median": 368.0,
+        "p90": 382.0,
+        "max": 406
+      },
+      "train_only": true,
+      "target_metrics": "NOT_APPLICABLE_NO_STRATEGIC_LABELS",
+      "final_accessed": false
+    },
+    {
+      "environment": "ISO2Y",
+      "representation": "X6",
+      "status": "IMPLEMENTED",
+      "description": "+ deterministic forecast summaries",
+      "feature_fields": [
+        "peak_load_mw",
+        "minimum_load_mw",
+        "daily_energy_mwh",
+        "max_up_ramp_mw_per_h",
+        "max_down_ramp_mw_per_h",
+        "forecast_change_vs_current_pct"
+      ],
+      "visible_classes": 8760,
+      "prompt_token_length": {
+        "available": true,
+        "min": 403,
+        "median": 492.0,
+        "p90": 511.0,
+        "max": 535
+      },
+      "train_only": true,
+      "target_metrics": "NOT_APPLICABLE_NO_STRATEGIC_LABELS",
+      "final_accessed": false
+    }
+  ],
+  "skipped_representations": [
+    {
+      "environment": "ISO2Y",
+      "representation": "X7",
+      "status": "SKIPPED_UNAVAILABLE",
+      "description": "+ renewable forecast; no verified wind/solar forecast",
+      "feature_fields": [
+        "wind_forecast_mw",
+        "solar_forecast_mw"
+      ],
+      "train_only": true,
+      "final_accessed": false
+    },
+    {
+      "environment": "ISO2Y",
+      "representation": "X8",
+      "status": "SKIPPED_UNAVAILABLE",
+      "description": "+ net-load forecast; required renewable components unavailable",
+      "feature_fields": [
+        "net_load_forecast_mw"
+      ],
+      "train_only": true,
+      "final_accessed": false
+    }
+  ],
+  "timestamp_audit": {
+    "stage": "T37_PUBLIC_STATE_TIMESTAMP_AUDIT",
+    "rows": 17496,
+    "train_rows": 8760,
+    "forecast_publish_le_cutoff": true,
+    "forecast_publish_violations": 0,
+    "forecast_target_after_cutoff": 17496,
+    "source_code_has_forecast_cutoff_check": true,
+    "source_code_has_asof_history_rule": true,
+    "timestamp_examples": [
+      {
+        "target_local_date": "2020-01-01",
+        "decision_cutoff_utc": "2019-12-31 15:00:00+00:00",
+        "forecast_publish_utc": "2019-12-31 09:37:05+00:00",
+        "target_hour_utc": "2020-01-01 05:00:00+00:00"
+      },
+      {
+        "target_local_date": "2020-01-01",
+        "decision_cutoff_utc": "2019-12-31 15:00:00+00:00",
+        "forecast_publish_utc": "2019-12-31 09:37:05+00:00",
+        "target_hour_utc": "2020-01-01 06:00:00+00:00"
+      },
+      {
+        "target_local_date": "2020-01-01",
+        "decision_cutoff_utc": "2019-12-31 15:00:00+00:00",
+        "forecast_publish_utc": "2019-12-31 09:37:05+00:00",
+        "target_hour_utc": "2020-01-01 07:00:00+00:00"
+      },
+      {
+        "target_local_date": "2020-01-01",
+        "decision_cutoff_utc": "2019-12-31 15:00:00+00:00",
+        "forecast_publish_utc": "2019-12-31 09:37:05+00:00",
+        "target_hour_utc": "2020-01-01 08:00:00+00:00"
+      }
+    ],
+    "serialized_source_timestamp_limitation": "current/history source timestamps are enforced by the as-of builder but not stored as separate per-feature columns",
+    "future_leakage": false,
+    "final_accessed": false
+  },
+  "leakage_audit": {
+    "stage": "T37_PUBLIC_STATE_LEAKAGE_AUDIT",
+    "iso2y_forbidden_columns": [],
+    "iso2y_card_forbidden_key_hits": [],
+    "iso2y_prompt_forbidden_hits": [],
+    "paper9bus_prompt_forbidden_hits": [],
+    "future_realized_columns_present": false,
+    "payoff_oracle_regret_columns_present": false,
+    "hidden_opponent_columns_present": false,
+    "future_leakage": false,
+    "hidden_leakage": false,
+    "final_accessed": false
+  },
+  "sft_run": false,
+  "grpo_run": false,
+  "final_accessed": false
+}

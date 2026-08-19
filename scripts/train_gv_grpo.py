@@ -43,8 +43,8 @@ def main():
     bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_use_double_quant=True, bnb_4bit_compute_dtype=torch.float16)
     base = AutoModelForCausalLM.from_pretrained(model_name, quantization_config=bnb, device_map={"": 0}, trust_remote_code=True, torch_dtype=torch.float16); model = PeftModel.from_pretrained(base, args.run_dir / "adapter", is_trainable=True).train(); model.config.use_cache = False; model.gradient_checkpointing_enable(); model.enable_input_require_grads()
     params = [p for p in model.parameters() if p.requires_grad]; optimizer = torch.optim.AdamW(params, lr=float(cfg["learning_rate"])); groups = list(grouped.values()); random.seed(int(cfg["seed"])); random.shuffle(groups); history = []
-    # Freeze old-policy scores before the first optimizer update.  Computing
-    # old_lp from the already-updated model would make PPO's ratio nearly 1.
+    # Freeze old-policy scores before the first optimizer update. Computing
+    # old_lp from the already-updated model would make the PPO ratio nearly 1.
     old_logprobs = {}
     model.eval()
     with torch.no_grad():

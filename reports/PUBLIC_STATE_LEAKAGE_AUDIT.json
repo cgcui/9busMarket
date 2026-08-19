@@ -1,0 +1,13 @@
+{
+  "stage": "T37_PUBLIC_STATE_LEAKAGE_AUDIT",
+  "iso2y_forbidden_columns": [],
+  "iso2y_card_forbidden_key_hits": [],
+  "iso2y_prompt_forbidden_hits": [],
+  "paper9bus_prompt_forbidden_hits": [],
+  "future_realized_columns_present": false,
+  "payoff_oracle_regret_columns_present": false,
+  "hidden_opponent_columns_present": false,
+  "future_leakage": false,
+  "hidden_leakage": false,
+  "final_accessed": false
+}
