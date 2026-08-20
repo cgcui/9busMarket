@@ -1,0 +1,15 @@
+{
+  "schema_version": "Paper9Bus-DayAhead-Bid-v1",
+  "horizon_hours": 24,
+  "focal_generator": "G1",
+  "bid_units": "USD/MWh",
+  "internal_representation": "bid_price = G1_true_marginal_cost * markup",
+  "train_only_smoke_policy": "previous UTC day same-hour persistence forecast",
+  "markup_levels": [1.30, 1.50, 1.80],
+  "forecast_bins": "TRAIN load terciles",
+  "opponent_state_in_prompt": false,
+  "future_payoff_in_schedule": false,
+  "dev_holdout_accessed": false,
+  "sft_started": false,
+  "grpo_started": false
+}

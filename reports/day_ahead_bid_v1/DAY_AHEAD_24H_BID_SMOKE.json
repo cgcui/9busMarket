@@ -1,0 +1,80 @@
+{
+  "status": "PASS_DAY_AHEAD_24H_BID_SMOKE",
+  "checks": {
+    "schedule_rows": true,
+    "evaluation_rows": true,
+    "no_missing_cells": true,
+    "all_optimal": true,
+    "balance_pass": true,
+    "branch_limit_pass": true,
+    "every_hour_has_price": true
+  },
+  "target_days": 365,
+  "hours": 8760,
+  "hidden_k_g3_scenarios": [
+    1.0,
+    1.05,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "scenario_summary": [
+    {
+      "k_g3": 1.0,
+      "hours": 8760,
+      "total_profit_usd": 958645.7711878394,
+      "flat_total_profit_usd": 3629134.2615080937,
+      "private_probe_regret_usd": 2670488.4903202546,
+      "mean_bid_price_usd_per_mwh": 30.671917808219177
+    },
+    {
+      "k_g3": 1.05,
+      "hours": 8760,
+      "total_profit_usd": 998935.7711878396,
+      "flat_total_profit_usd": 3629134.2615080937,
+      "private_probe_regret_usd": 3230383.62954647,
+      "mean_bid_price_usd_per_mwh": 30.671917808219177
+    },
+    {
+      "k_g3": 1.1,
+      "hours": 8760,
+      "total_profit_usd": 1039225.7711878379,
+      "flat_total_profit_usd": 3629134.2615080937,
+      "private_probe_regret_usd": 3790278.7687726845,
+      "mean_bid_price_usd_per_mwh": 30.671917808219177
+    },
+    {
+      "k_g3": 1.2,
+      "hours": 8760,
+      "total_profit_usd": 5317845.78617116,
+      "flat_total_profit_usd": 3629134.2615080937,
+      "private_probe_regret_usd": 712029.0322417911,
+      "mean_bid_price_usd_per_mwh": 30.671917808219177
+    },
+    {
+      "k_g3": 1.3,
+      "hours": 8760,
+      "total_profit_usd": 5317845.78617116,
+      "flat_total_profit_usd": 3629134.2615080937,
+      "private_probe_regret_usd": 1912399.3106942195,
+      "mean_bid_price_usd_per_mwh": 30.671917808219177
+    },
+    {
+      "k_g3": 1.5,
+      "hours": 8760,
+      "total_profit_usd": 5317845.78617116,
+      "flat_total_profit_usd": 3629134.2615080937,
+      "private_probe_regret_usd": 4313139.867599077,
+      "mean_bid_price_usd_per_mwh": 30.671917808219177
+    }
+  ],
+  "schedule_uses_hidden_state": false,
+  "oracle_used_for_schedule": false,
+  "oracle_used_only_for_offline_regret_diagnostic": true,
+  "forecast_policy": "previous UTC day same-hour persistence; hour-wise load terciles map to k_G1={1.30,1.50,1.80}",
+  "forecast_thresholds_mw": {
+    "q33": 285.70637119113576,
+    "q67": 344.792243767313
+  }
+}
