@@ -34,11 +34,13 @@ PUBLIC_EX_ANTE_DATE_ONLY_NOT_CUTOFF_PROVEN
 
 ## 与负荷、净负荷的关系
 
-风电预测已经加入公共状态；光伏日前预测仍然没有加入。因此：
+风电预测已经加入公共状态。随后审计的 `data/光伏预测` 压缩包虽然包含
+`Seven Day Solar Power Forecast` 文件名，但 760 份 CSV 的逐小时数值全部为空，
+因此光伏日前预测仍然没有加入。因此：
 
 ```text
 wind forecast: available on covered dates
-solar forecast: unavailable
+solar forecast: source archive present, but no numeric values
 net-load forecast: not emitted
 ```
 
@@ -64,3 +66,7 @@ $py = ".venv\Scripts\python.exe"
 - `reports/PUBLIC_FIELD_LEGALITY_AUDIT_WIND_V2.json`：v2 状态审计。
 
 训练默认仍指向 v1；使用 v2 前必须显式选择新的状态文件，并确认 `strict_training_gate` 的限制。
+
+光伏来源审计见 `reports/SOLAR_FORECAST_INGESTION_AUDIT.json`。如果后续拿到有数值的
+光伏报表，必须重新执行审计，确认报告日期、Hour Ending、重复文件和发布时间后，才能
+把 `solar_mw` 接入并重新生成 v2 状态。

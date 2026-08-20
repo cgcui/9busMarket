@@ -1,0 +1,3428 @@
+{
+  "schema_version": "ISO-NE-Solar-Forecast-Audit-v1",
+  "source_dir_name": "光伏预测",
+  "source_semantics": "ISO New England seven-day solar power forecast CSV reports",
+  "archive_count": 52,
+  "report_member_count": 760,
+  "unique_report_date_count": 730,
+  "duplicate_report_member_count": 30,
+  "report_date_min": "2020-01-01",
+  "report_date_max": "2021-12-31",
+  "missing_report_dates_2020_2021": [
+    "2020-09-27"
+  ],
+  "numeric_forecast_value_count": 0,
+  "empty_report_count": 760,
+  "ingestion_decision": "DO_NOT_INGEST_EMPTY_REPORTS",
+  "solar_forecast_status": "SOURCE_ARCHIVE_PRESENT_NO_NUMERIC_VALUES",
+  "net_load_status": "NOT_EMITTED",
+  "future_realization_columns_present": false,
+  "final_accessed": false,
+  "archive_manifest": [
+    {
+      "archive": "historical (100).zip",
+      "bytes": 6452,
+      "sha256": "9279052a1c50ef7b0646c51e7ac4f795fad7300230e18e661956edd45c25ad98",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210715.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210716.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210717.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210718.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210719.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210720.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210721.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210722.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210723.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210724.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210725.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210726.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210727.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210728.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210729.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (60).zip",
+      "bytes": 6443,
+      "sha256": "9b2cd319a07788b185d772b8636925f59d35df2b52f0436d40bb61cd3ab11b5d",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200101.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200102.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200103.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200104.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200105.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200106.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200107.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200108.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200109.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200110.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200111.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200112.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200113.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200114.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200115.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (61).zip",
+      "bytes": 6443,
+      "sha256": "edde52a6861cb4e936822264889691bdc29d46a09fd82e41510c6896bb337833",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200116.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200117.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200118.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200119.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200120.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200121.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200122.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200123.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200124.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200125.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200126.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200127.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200128.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200129.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200130.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (62).zip",
+      "bytes": 6447,
+      "sha256": "846d6398b6b5977abed4ce7eaa75c865262b65fabebf52a022632824655edc7b",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200131.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200201.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200202.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200203.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200204.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200205.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200206.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200207.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200208.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200209.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200210.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200211.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200212.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200213.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200214.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (63).zip",
+      "bytes": 6450,
+      "sha256": "bc65309b40518697293a71cb909de0fd54980f0360ec8847d5a758076fea9010",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200215.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200216.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200217.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200218.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200219.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200220.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200221.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200222.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200223.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200224.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200225.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200226.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200227.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200228.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200229.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (64).zip",
+      "bytes": 6455,
+      "sha256": "942bed803d272b24a4536db20635c81a219f72affd6cf2bd3878eaf7472873e0",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200301.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200302.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200303.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200304.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200305.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200306.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200307.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200308.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200309.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200310.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200311.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200312.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200313.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200314.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200315.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (65).zip",
+      "bytes": 6457,
+      "sha256": "f27392a6de712c3420031faa3cf0dae042f663ca26ae546926ed0b0a7c76708b",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200316.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200317.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200318.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200319.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200320.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200321.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200322.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200323.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200324.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200325.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200326.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200327.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200328.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200329.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200330.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (66).zip",
+      "bytes": 6455,
+      "sha256": "eefadacd46d29fcfcf95bfcaf8b04349ab7fb05552ed65d4cbec2ce160d640ab",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200331.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200401.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200402.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200403.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200404.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200405.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200406.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200407.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200408.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200409.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200410.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200411.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200412.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200413.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200414.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (67).zip",
+      "bytes": 6456,
+      "sha256": "a11ea174c4b380ac4f7c2ee4288941d755e4aef64d4d05addecd1709777ceb24",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200315.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200316.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200317.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200318.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200319.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200320.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200321.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200322.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200323.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200324.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200325.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200326.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200327.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200328.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200329.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (68).zip",
+      "bytes": 6450,
+      "sha256": "1b66b061e11281afd59d5ed77c1fbf3dc068356c3d82579c606700cf1e5a4bd0",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200330.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200331.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200401.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200402.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200403.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200404.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200405.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200406.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200407.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200408.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200409.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200410.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200411.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200412.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200413.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (69).zip",
+      "bytes": 6457,
+      "sha256": "1d8e7654f526a16dd8a9c1e318e7cfd5f207f7b05c44604c84374eee4dfa80b8",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200415.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200416.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200417.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200418.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200419.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200420.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200421.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200422.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200423.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200424.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200425.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200426.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200427.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200428.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200429.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (70).zip",
+      "bytes": 6458,
+      "sha256": "18269e23b8e3aba5959e669dec0fed047d1e31e467821192f2718beda07d8278",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200430.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200501.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200502.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200503.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200504.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200505.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200506.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200507.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200508.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200509.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200510.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200511.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200512.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200513.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200514.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (71).zip",
+      "bytes": 6463,
+      "sha256": "ccab36418f8c980d0271ee73014db7b2171d715dec2349ec552276c712771de6",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200515.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200516.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200517.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200518.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200519.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200520.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200521.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200522.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200523.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200524.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200525.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200526.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200527.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200528.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200529.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (72).zip",
+      "bytes": 6457,
+      "sha256": "e102f74891a6273714c41d6aa0568241662cef5ec5b723ea41c2737e066e259b",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200530.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200531.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200601.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200602.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200603.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200604.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200605.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200606.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200607.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200608.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200609.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200610.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200611.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200612.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200613.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (73).zip",
+      "bytes": 6456,
+      "sha256": "fb0377a77d38bc8d3aeec68f0175d302c974177a48bb6f4bf27ece00971c0b8e",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200614.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200615.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200616.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200617.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200618.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200619.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200620.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200621.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200622.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200623.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200624.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200625.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200626.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200627.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200628.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (74).zip",
+      "bytes": 6453,
+      "sha256": "e162551345c332935dd25a1bbaf9357f7be53e94775065144018bfa8fea9d966",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200629.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200630.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200701.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200702.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200703.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200704.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200705.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200706.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200707.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200708.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200709.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200710.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200711.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200712.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200713.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (75).zip",
+      "bytes": 6454,
+      "sha256": "3f7cd55a1e1b203ef092024692c1f787f5d4bc34af25de0580eceb4ee8951b72",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200714.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200715.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200716.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200717.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200718.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200719.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200720.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200721.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200722.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200723.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200724.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200725.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200726.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200727.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200728.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (76).zip",
+      "bytes": 6435,
+      "sha256": "4c2558262c7226f305f452c2343744d16cc4466218d43c939db23d89d68c4108",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200729.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200730.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200731.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200801.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200802.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200803.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200804.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200805.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200806.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200807.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200808.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200809.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200810.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200811.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200812.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (77).zip",
+      "bytes": 6432,
+      "sha256": "3994c8de99bd378baafaafe86531a106f948b97bf19c3846f342979aa97c7882",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200813.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200814.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200815.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200816.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200817.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200818.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200819.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200820.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200821.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200822.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200823.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200824.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200825.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200826.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200827.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (78).zip",
+      "bytes": 6452,
+      "sha256": "ee09d8d333a27cd2fefe5589916883e570544c9c2ef027c9f3e188ac54d97f78",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200828.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200829.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200830.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200831.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200901.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200902.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200903.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200904.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200905.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200906.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200907.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200908.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200909.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200910.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200911.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (79).zip",
+      "bytes": 6453,
+      "sha256": "49c98184056ff0664ef55471948d0cb72095a78f9b84e2b4dc5e467d15f834f2",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200912.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200913.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200914.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200915.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200916.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200917.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200918.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200919.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200920.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200921.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200922.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200923.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200924.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200925.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200926.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (80).zip",
+      "bytes": 6457,
+      "sha256": "dee16110f352405152187c3e47fd9bc58c4b7e8b5a6acf73cd561dd26d3b7f45",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20200928.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200929.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20200930.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201001.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201002.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201003.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201004.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201005.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201006.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201007.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201008.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201009.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201010.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201011.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201012.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (81).zip",
+      "bytes": 6452,
+      "sha256": "de415b766b290998e86c5b98869972348dc11176c0847f2d6d64e2f1600baa00",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20201013.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201014.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201015.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201016.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201017.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201018.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201019.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201020.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201021.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201022.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201023.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201024.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201025.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201026.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201027.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (82).zip",
+      "bytes": 6451,
+      "sha256": "c248f3887a53dc7692a7855cf40c0084b37d9504a9687316279ce8731222f840",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20201028.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201029.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201030.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201031.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201101.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201102.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201103.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201104.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201105.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201106.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201107.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201108.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201109.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201110.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201111.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (83).zip",
+      "bytes": 6442,
+      "sha256": "8190680fbb33c104ffce60f45f094a56b140cfe346573654d46b9bac9a1b0c89",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20201112.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201113.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201114.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201115.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201116.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201117.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201118.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201119.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201120.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201121.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201122.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201123.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201124.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201125.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201126.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (84).zip",
+      "bytes": 6446,
+      "sha256": "b7d343e7d34fc4e72fb84aaf3a1a40649b33222e6bc9cc9b912015d1ef1cde69",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20201127.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201128.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201129.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201130.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201201.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201202.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201203.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201204.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201205.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201206.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201207.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201208.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201209.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201210.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201211.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (85).zip",
+      "bytes": 6438,
+      "sha256": "f7f1fa895e2722afc181da8f28707baf04966030c07d258fbe313b182159db7a",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20201212.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201213.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201214.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201215.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201216.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201217.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201218.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201219.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201220.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201221.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201222.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201223.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201224.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201225.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201226.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (86).zip",
+      "bytes": 2164,
+      "sha256": "b6307833c7a872e430e37e074bd0bab8d155d3885f578676da9f8f2057519484",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20201227.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201228.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201229.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201230.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20201231.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (87).zip",
+      "bytes": 6452,
+      "sha256": "4e959221d8ac9888fc5f1fd7edde257a73dcbc6133f4040173064ada756e3b5e",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210101.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210102.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210103.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210104.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210105.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210106.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210107.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210108.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210109.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210110.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210111.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210112.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210113.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210114.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210115.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (88).zip",
+      "bytes": 6447,
+      "sha256": "985a2755ef4c2d672e7311446578b9c97d7cfdc667a97379e998bab1af380fa7",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210116.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210117.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210118.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210119.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210120.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210121.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210122.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210123.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210124.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210125.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210126.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210127.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210128.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210129.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210130.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (89).zip",
+      "bytes": 6446,
+      "sha256": "ba30cb927bc3e88af0c5518d154f0d8eabc83f6e6cf08f13509c9f680f26e614",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210131.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210201.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210202.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210203.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210204.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210205.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210206.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210207.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210208.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210209.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210210.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210211.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210212.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210213.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210214.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (90).zip",
+      "bytes": 6453,
+      "sha256": "9768e2d9daeec6dace88ee556dfae7f47a6a1c318476f30d3c0efc991d0f910f",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210215.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210216.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210217.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210218.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210219.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210220.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210221.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210222.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210223.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210224.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210225.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210226.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210227.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210228.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210301.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (91).zip",
+      "bytes": 6457,
+      "sha256": "e1dcef44fa5cbb42a4b6ff159127815e20c5d662e32eb048c60535549a817a05",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210302.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210303.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210304.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210305.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210306.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210307.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210308.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210309.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210310.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210311.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210312.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210313.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210314.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210315.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210316.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (92).zip",
+      "bytes": 6455,
+      "sha256": "79fa89d6da6d05fc5a9094f5b8cc9f2a310c2908c7eac20fa85c0cece476dcc0",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210317.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210318.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210319.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210320.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210321.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210322.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210323.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210324.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210325.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210326.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210327.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210328.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210329.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210330.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210331.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (93).zip",
+      "bytes": 6451,
+      "sha256": "d3eabe4fab4ff1568962241f1ee58871e667c7418122d7d6b42873ad4fc42ff9",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210401.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210402.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210403.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210404.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210405.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210406.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210407.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210408.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210409.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210410.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210411.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210412.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210413.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210414.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210415.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (94).zip",
+      "bytes": 6453,
+      "sha256": "204c3e8788f5180692b228f223b3c64ed9ca16648dd7246299d9d98874e8dc0d",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210416.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210417.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210418.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210419.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210420.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210421.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210422.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210423.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210424.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210425.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210426.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210427.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210428.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210429.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210430.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (95).zip",
+      "bytes": 6456,
+      "sha256": "4b7d833577417a59e24dfabe627df383048a7e80471524ac2e1185f50e6471ec",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210501.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210502.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210503.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210504.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210505.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210506.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210507.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210508.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210509.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210510.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210511.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210512.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210513.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210514.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210515.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (96).zip",
+      "bytes": 6453,
+      "sha256": "8b15322498b629c05fe55fb6da1e0d72957c3d2d3d79143d2c5ac1ab252ddea1",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210516.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210517.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210518.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210519.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210520.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210521.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210522.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210523.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210524.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210525.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210526.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210527.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210528.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210529.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210530.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (97).zip",
+      "bytes": 6457,
+      "sha256": "a7e4913289a445b9f8b5eabecab48cf29ee24ac20eed507e99687940873b92b6",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210531.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210601.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210602.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210603.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210604.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210605.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210606.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210607.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210608.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210609.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210610.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210611.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210612.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210613.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210614.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (98).zip",
+      "bytes": 6453,
+      "sha256": "9ed811fa8c9d65906dac8c44b418655b8349ffd3c03f370daeac6ca820360679",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210615.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210616.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210617.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210618.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210619.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210620.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210621.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210622.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210623.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210624.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210625.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210626.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210627.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210628.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210629.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical (99).zip",
+      "bytes": 6451,
+      "sha256": "9a2f81a5d94d0ced6537bbbdc5d048053b9cc52413c719255a119b2dc538e201",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210630.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210701.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210702.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210703.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210704.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210705.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210706.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210707.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210708.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210709.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210710.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210711.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210712.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210713.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210714.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100637.271.zip",
+      "bytes": 6430,
+      "sha256": "cc81b9feb6182eed8c585eaebe9a300e42fa30a3ab70fc701f01ffd178c2a591",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210730.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210731.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210801.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210802.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210803.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210804.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210805.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210806.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210807.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210808.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210809.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210810.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210811.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210812.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210813.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100651.086.zip",
+      "bytes": 6427,
+      "sha256": "7e645591747610de719ebfcd66d1d029faef59942638127cf2b370c30f11b456",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210814.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210815.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210816.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210817.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210818.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210819.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210820.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210821.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210822.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210823.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210824.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210825.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210826.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210827.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210828.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100708.112.zip",
+      "bytes": 6446,
+      "sha256": "6a929f7a5448a68570b3f2f8c8f5097a9d5f2e98d6c70e410df2b72751c0679f",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210829.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210830.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210831.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210901.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210902.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210903.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210904.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210905.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210906.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210907.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210908.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210909.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210910.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210911.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210912.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100720.053.zip",
+      "bytes": 6451,
+      "sha256": "aeffbd675095500abb7d23462bed793b0eae2d1dd8fada91727b6e5ccea446ff",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210913.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210914.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210915.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210916.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210917.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210918.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210919.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210920.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210921.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210922.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210923.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210924.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210925.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210926.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210927.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100736.215.zip",
+      "bytes": 6446,
+      "sha256": "b04cab407a768b85d6310bdd1371662b3010757c11620d86298061e7c95a01cb",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20210928.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210929.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20210930.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211001.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211002.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211003.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211004.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211005.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211006.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211007.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211008.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211009.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211010.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211011.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211012.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100746.988.zip",
+      "bytes": 6448,
+      "sha256": "bdbd46991ac2bb812be010ba7cf44321d3c5f6f31c79dfc3429c7e30133a1ee7",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20211013.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211014.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211015.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211016.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211017.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211018.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211019.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211020.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211021.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211022.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211023.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211024.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211025.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211026.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211027.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100758.493.zip",
+      "bytes": 6439,
+      "sha256": "dc68f819b20eb53a72bac8e222ddc76bdc221b357d76448612fa18dbcb847c71",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20211028.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211029.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211030.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211031.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211101.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211102.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211103.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211104.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211105.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211106.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211107.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211108.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211109.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211110.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211111.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100810.289.zip",
+      "bytes": 6434,
+      "sha256": "c360db148ac3c5b79b197791d5f45b1b31f058fe04e5e99bbccf4b3147d9b1a4",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20211112.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211113.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211114.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211115.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211116.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211117.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211118.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211119.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211120.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211121.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211122.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211123.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211124.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211125.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211126.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100822.563.zip",
+      "bytes": 6441,
+      "sha256": "9cf7b3f90f0dd9507418137f937e345868224a7e400065cd28dd1741c167af97",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20211127.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211128.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211129.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211130.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211201.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211202.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211203.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211204.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211205.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211206.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211207.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211208.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211209.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211210.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211211.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100836.029.zip",
+      "bytes": 6438,
+      "sha256": "e5986214db36e0cab477681225a9a720a5043322ff1f8e30a96339ef7e4b97b3",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20211212.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211213.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211214.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211215.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211216.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211217.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211218.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211219.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211220.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211221.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211222.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211223.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211224.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211225.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211226.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    },
+    {
+      "archive": "historical - 2026-08-20T100847.941.zip",
+      "bytes": 2164,
+      "sha256": "2f81d6baceee85150c1284b7ebb7361640df791293c4d03d868374d335a2e1d5",
+      "report_members": [
+        {
+          "member": "seven_day_solar_power_forecast_20211227.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211228.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211229.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211230.csv",
+          "numeric_value_count": 0
+        },
+        {
+          "member": "seven_day_solar_power_forecast_20211231.csv",
+          "numeric_value_count": 0
+        }
+      ]
+    }
+  ],
+  "status": "PASS_AUDIT_NO_SOLAR_VALUES"
+}

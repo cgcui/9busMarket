@@ -33,15 +33,15 @@
       "leakage_status": "no download timestamp treated as publication timestamp"
     },
     "renewable_forecast.solar_mw": {
-      "status": "UNAVAILABLE",
-      "source_file": "none",
-      "source_column": "none",
+      "status": "SOURCE_ARCHIVE_PRESENT_NO_NUMERIC_VALUES",
+      "source_file": "reports/SOLAR_FORECAST_INGESTION_AUDIT.json",
+      "source_column": "numeric_value_count=0",
       "unit": "N/A",
-      "physical_meaning": "solar forecast",
-      "leakage_status": "must not fabricate"
+      "physical_meaning": "solar forecast source was audited but all report data rows are empty",
+      "leakage_status": "must not convert empty reports to zero or fabricate values"
     },
     "renewable_forecast.net_load_mw": {
-      "status": "NOT_EMITTED_SOLAR_MISSING",
+      "status": "NOT_EMITTED_SOLAR_SOURCE_EMPTY",
       "source_file": "none",
       "source_column": "none",
       "unit": "N/A",
