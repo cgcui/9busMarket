@@ -1,0 +1,99 @@
+{
+  "source_files": {
+    "bridge": {
+      "path": "D:\\code\\ERCOTsimulation\\ERCOTTestSystem\\9busMarket\\data\\public\\isone_2024_2026\\paper9bus_2024_2026_gross_load_bridge_v1.parquet",
+      "sha256": "12b035c3289756a59e1da3f92a6eb2279651563b59b80c04c61a9faec4caf601",
+      "rows": 18240,
+      "columns": [
+        "target_hour_utc",
+        "target_local_date",
+        "target_he",
+        "target_utc_date",
+        "target_utc_he",
+        "decision_cutoff_utc",
+        "split",
+        "public_state_hash",
+        "gross_load_forecast_mw",
+        "wind_forecast_mw",
+        "solar_forecast_mw",
+        "renewable_input_mode",
+        "case9_alpha",
+        "physical_renewable_injection",
+        "load_bus_1_mw",
+        "load_bus_2_mw",
+        "load_bus_3_mw",
+        "load_bus_4_mw",
+        "load_bus_5_mw",
+        "load_bus_6_mw",
+        "load_bus_7_mw",
+        "load_bus_8_mw",
+        "load_bus_9_mw",
+        "total_case9_load_mw"
+      ]
+    },
+    "actual_load": {
+      "path": "D:\\code\\ERCOTsimulation\\ERCOTTestSystem\\9busMarket\\data\\public\\isone_2024_2026\\isone_actual_hourly_interpolated_2024-06_2026-06.parquet",
+      "sha256": "bf40bf8c3fa2478fd7e34e594ef25ec55567b0d5b2dea46fac40c743a24bc764",
+      "rows": 18240,
+      "columns": [
+        "interval_start_utc",
+        "interval_end_utc",
+        "location",
+        "location_id",
+        "load",
+        "native_load",
+        "ard_demand",
+        "load_observed",
+        "load_imputation_status"
+      ]
+    },
+    "btm_solar": {
+      "path": "D:\\code\\ERCOTsimulation\\ERCOTTestSystem\\9busMarket\\data\\input\\isone_2024_2026_fixed_renewable\\isone_btm_solar_hourly_estimated_2024-06_2026-06.parquet",
+      "sha256": "3fd40ea2238b9fa1c050f898250b99b2d316c2d5f7ad8162cbd7a9b8dab5299d",
+      "rows": 18240,
+      "columns": [
+        "timestamp_utc",
+        "estimated_btm_solar_mw",
+        "btm_solar_5min_observation_count",
+        "source_semantics",
+        "metering_status"
+      ]
+    },
+    "wind_proxy": {
+      "path": "D:\\code\\ERCOTsimulation\\ERCOTTestSystem\\9busMarket\\data\\input\\isone_2024_2026_fixed_renewable\\isone_wind_dispatch_expected_hourly_2024-06_2026-06.parquet",
+      "sha256": "04699e864433b200415538f39cdb604c160220dcaae5f7e92c1c523d28377d47",
+      "rows": 18240,
+      "columns": [
+        "timestamp_utc",
+        "wind_dispatch_expected_mw",
+        "fuel_mix_5min_observation_count",
+        "source_semantics",
+        "available_power_semantics",
+        "metering_status"
+      ]
+    }
+  },
+  "input_rows_after_one_to_one_join": 8760,
+  "selected_rows": 8760,
+  "selected_start_utc": "2024-06-01T00:00:00+00:00",
+  "selected_end_utc": "2025-05-31T23:00:00+00:00",
+  "one_to_one_alignment": true,
+  "forecast_fields_carried_not_consumed": [
+    "wind_forecast_mw",
+    "solar_forecast_mw"
+  ],
+  "physical_forecast_fields_consumed": 0,
+  "double_scaling": false,
+  "scaling_formula": "total_case9_load_mw / gross_load_forecast_mw",
+  "weights": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 0.2857142857142857,
+    "6": 0.0,
+    "7": 0.31746031746031744,
+    "8": 0.0,
+    "9": 0.3968253968253968
+  }
+}

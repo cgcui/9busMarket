@@ -1,0 +1,44 @@
+{
+  "penetration_stats": {
+    "btm_solar_fraction": {
+      "min": 0.0,
+      "mean": 0.09099621320260702,
+      "median": 0.0020773430391264787,
+      "p10": 0.0,
+      "p90": 0.3072256209300832,
+      "max": 1.28996138996139
+    },
+    "wind_proxy_fraction": {
+      "min": 1.1312217194570136e-05,
+      "mean": 0.035219311317414737,
+      "median": 0.029325901470068746,
+      "p10": 0.006171905752980352,
+      "p90": 0.07249196996702355,
+      "max": 0.15397376543209879
+    },
+    "combined_fraction": {
+      "min": 0.0004945054945054945,
+      "mean": 0.12621552452002174,
+      "median": 0.06170167249507956,
+      "p10": 0.014348991640099649,
+      "p90": 0.33890509349737896,
+      "max": 1.3512808041504538
+    },
+    "residual_load_fraction": {
+      "min": -0.35128080415045376,
+      "mean": 0.8737844754799783,
+      "median": 0.9382983275049204,
+      "p10": 0.6610949065026211,
+      "p90": 0.9856510083599003,
+      "max": 0.9995054945054943
+    }
+  },
+  "solar_as_generator_mw": 0.0,
+  "wind_as_opf_variable": false,
+  "utility_solar_injection_mw": 0.0,
+  "raw_negative_net_load_hours": 15,
+  "surplus_floor_policy_active": true,
+  "max_clipped_mw_per_case": 55.32672665369647,
+  "max_minimum_generation_uplift_mw_per_case": 30.0,
+  "pass": true
+}

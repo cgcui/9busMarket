@@ -1,0 +1,44 @@
+{
+  "identifier": "Paper9Bus-ISONE-FixedRenewable-Physics-v1",
+  "parent_baseline_commit": "8b732394b7e81019cab54c4a8097f99700a49e5c",
+  "case_ids": ["C0_NO_RENEWABLE", "C1_BTM_SOLAR_ONLY", "C2_BTM_SOLAR_PLUS_FIXED_WIND"],
+  "frozen_case": "data/action_space_v2_simulator/case_snapshot/frozen_case9_blv.json",
+  "gross_load_bridge": "data/public/isone_2024_2026/paper9bus_2024_2026_gross_load_bridge_v1.parquet",
+  "btm_solar_source": "data/input/isone_2024_2026_fixed_renewable/isone_btm_solar_hourly_estimated_2024-06_2026-06.parquet",
+  "wind_proxy_source": "data/input/isone_2024_2026_fixed_renewable/isone_wind_dispatch_expected_hourly_2024-06_2026-06.parquet",
+  "actual_load_source": "data/public/isone_2024_2026/isone_actual_hourly_interpolated_2024-06_2026-06.parquet",
+  "output_dir": "data/physical/isone_2024_2026_9bus_full_train_fixed_renewable_v1",
+  "reports_dir": "reports/full_train_fixed_renewable_v1",
+  "selection": {
+    "split": "TRAIN",
+    "hours": 8760,
+    "rule": "first 8760 valid rows ordered by timestamp_utc",
+    "dev_or_holdout": false
+  },
+  "scaling": {
+    "formula": "scale = total_case9_load_mw / gross_load_forecast_mw",
+    "source_units": "ISO-NE MW before bridge scaling",
+    "double_scaling": false
+  },
+  "siting": "DISTRIBUTED_BY_BASE_LOAD_SHARE_V1",
+  "solar": {
+    "semantic_class": "REALIZED_ESTIMATED_BTM_PV",
+    "physical_role": "NEGATIVE_LOAD",
+    "curtailable": false,
+    "utility_solar_injection": false
+  },
+  "wind": {
+    "semantic_class": "DISPATCH_EXPECTED_WIND_GENERATION_PROXY",
+    "physical_role": "FIXED_EXOGENOUS_INJECTION",
+    "curtailable": false,
+    "available_power_known": false,
+    "opf_decision_variable": false
+  },
+  "solver": {
+    "backend": "existing frozen solve_dcopf",
+    "k_g1": 1.0,
+    "k_g3": 1.0,
+    "forecast_fields_allowed_in_physical_solver": false
+  },
+  "stop_rule": "Materialize TRAIN 8760h only; do not read DEV or HOLDOUT and do not change Action-Space-v2, SFT, or GRPO."
+}
