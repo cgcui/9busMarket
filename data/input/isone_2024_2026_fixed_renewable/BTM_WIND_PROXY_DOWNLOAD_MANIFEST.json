@@ -1,0 +1,48 @@
+{
+  "schema_version": "ISO-NE-BTM-Solar-And-Wind-Dispatch-Proxy-v1",
+  "query_window_utc": {
+    "start": "2024-06-01T00:00:00+00:00",
+    "end_exclusive": "2026-07-01T00:00:00+00:00"
+  },
+  "new_open_source_api_calls_last_resume_run": 2,
+  "minimum_reliable_coverage_windows": 381,
+  "coverage_complete": true,
+  "api_call_note": "Final artifacts contain all 381 two-day coverage windows. The last run re-fetched only two DST boundary chunks; earlier exploratory/repair requests are not part of the final dataset.",
+  "btm_solar": {
+    "api_calls": 2,
+    "endpoint_method": "ISONE._get_system_load(series=actual) in two-local-day chunks; BTM = NativeLoadBtmPv - Load",
+    "request_chunks": 381,
+    "resumed_chunks": 379,
+    "chunk_dir": "D:\\code\\ERCOTsimulation\\isone_actual\\.btm_solar_chunks_v2",
+    "raw_path": "D:\\code\\ERCOTsimulation\\isone_actual\\isone_btm_solar_5min_estimated_2024-06_2026-06.parquet",
+    "hourly_path": "D:\\code\\ERCOTsimulation\\isone_actual\\isone_btm_solar_hourly_estimated_2024-06_2026-06.parquet",
+    "raw_rows": 218880,
+    "hourly_rows": 18240,
+    "expected_hourly_rows": 18240,
+    "five_minute_negative_values": 0,
+    "hourly_missing_rows": 0,
+    "hourly_partial_rows": 0
+  },
+  "wind_dispatch_proxy": {
+    "source_path": "D:\\code\\ERCOTsimulation\\isone_actual\\isone_fuel_mix_5min_actual_2024-06_2026-06.parquet",
+    "output_path": "D:\\code\\ERCOTsimulation\\isone_actual\\isone_wind_dispatch_expected_hourly_2024-06_2026-06.parquet",
+    "rows": 18240,
+    "expected_hourly_rows": 18240,
+    "missing_rows": 0,
+    "aggregation": "hourly mean of irregular dispatch-fuel-mix snapshots",
+    "source_semantics": "DISPATCH_EXPECTED_WIND_GENERATION",
+    "available_power": false,
+    "new_api_calls": 0
+  },
+  "merged_hourly_path": "D:\\code\\ERCOTsimulation\\isone_actual\\isone_btm_solar_wind_dispatch_proxy_hourly_2024-06_2026-06.parquet",
+  "forecast_inputs_reused_without_download": [
+    "D:\\code\\ERCOTsimulation\\isone_wind_forecast\\isone_wind_forecast_2024-06_2026-06.parquet",
+    "D:\\code\\ERCOTsimulation\\isone_solar_forecast\\isone_solar_forecast_2024-06_2026-06.parquet"
+  ],
+  "semantic_rules": {
+    "estimated_btm_solar_mw": "allowed as BTM negative load after explicit estimated_not_metered label",
+    "wind_dispatch_expected_mw": "historical dispatch-expected proxy only; never wind_available_mw",
+    "wind_available_mw": "not supplied"
+  },
+  "status": "PASS_BTM_SOLAR_PLUS_WIND_DISPATCH_PROXY"
+}
