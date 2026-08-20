@@ -115,6 +115,14 @@ python scripts/build_public_energy_state_wind_v2.py
 
 旧的 `data/public/isone_2y_public_energy_state.parquet` v1 保持不变。
 
+### Renewable-Aware 9-bus 负荷版本
+
+当前 9bus renewable-aware 版本先只接入 ISO-NE 总负荷，不使用风电/光伏预测：
+`ISO-NE hourly_load_mw -> TRAIN-only median-ratio alpha -> IEEE-9 bus 5/7/9`。
+生成入口是 `scripts/build_paper9bus_isone2y_load_bridge.py`，公式、产物和冻结边界见
+`RENEWABLE_AWARE_9BUS_PROBLEM_CN.md`。风光输入保留为后续可插拔接口，当前不会进入
+物理负荷或 net-load。
+
 ## 目录
 
 ```text
