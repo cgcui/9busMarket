@@ -229,7 +229,7 @@ def build_rows(source_root: Path) -> tuple[pd.DataFrame, dict[str, Any]]:
 
 def jsonify_row(row: dict[str, Any]) -> dict[str, Any]:
     out = dict(row)
-    for key in ("hourly_load_mw", "forecast_zone_load_mw", "day_ahead_lmp_by_zone", "load_history_last_4h_mw", "load_last_4h_mw", "lmp_last_4h"):
+    for key in ("hourly_load_mw", "forecast_zone_load_mw", "day_ahead_lmp_by_zone", "load_history_last_4h_mw", "load_last_4h_mw", "lmp_last_4h", "wind_mw"):
         value = out.get(key)
         out[key] = json.dumps(value, ensure_ascii=False, separators=(",", ":")) if value is not None else None
     return out

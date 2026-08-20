@@ -174,7 +174,17 @@ def build_public_energy_state(row: Mapping[str, Any], rules: Mapping[str, Any]) 
         card["day_ahead_load_forecast"] = forecast
 
     renewable = {}
-    for key in ("wind_mw", "solar_mw", "net_load_mw", "net_load_peak_mw", "net_load_ramp"):
+    for key in (
+        "wind_mw",
+        "solar_mw",
+        "net_load_mw",
+        "net_load_peak_mw",
+        "net_load_ramp",
+        "wind_forecast_status",
+        "wind_forecast_report_date",
+        "wind_forecast_hours_available",
+        "wind_forecast_cutoff_eligibility",
+    ):
         if _present(row.get(key)):
             renewable[key] = row[key]
     load_forecast = row.get("hourly_load_mw")
