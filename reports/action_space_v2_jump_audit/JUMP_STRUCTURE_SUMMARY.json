@@ -1,0 +1,99 @@
+{
+  "classification": "CROSSING_DOMINATED_JUMP_STRUCTURE",
+  "cell_bank_only": true,
+  "solver_rerun": false,
+  "completeness": {
+    "expected_curves": 52560,
+    "expected_rows": 2260080,
+    "actual_curves": 52560,
+    "actual_rows": 2260080
+  },
+  "tolerances": {
+    "solver_primal_feasibility_tolerance": 1e-07,
+    "dispatch_jump_tolerance_mw": 9.999999999999999e-06,
+    "lmp_tolerance": 1e-07,
+    "profit_tolerance": 1e-07
+  },
+  "curve_count": 52560,
+  "event_count": 30552,
+  "distributions": {
+    "n_G1_dispatch_regimes": {
+      "mean": 1.5812785388127855,
+      "median": 2.0,
+      "p75": 2.0,
+      "p90": 2.0,
+      "p95": 2.0,
+      "p99": 2.0,
+      "max": 2.0
+    },
+    "n_full_dispatch_vector_regimes": {
+      "mean": 1.5812785388127855,
+      "median": 2.0,
+      "p75": 2.0,
+      "p90": 2.0,
+      "p95": 2.0,
+      "p99": 2.0,
+      "max": 2.0
+    },
+    "n_G1_dispatch_jumps": {
+      "mean": 0.5812785388127854,
+      "median": 1.0,
+      "p75": 1.0,
+      "p90": 1.0,
+      "p95": 1.0,
+      "p99": 1.0,
+      "max": 1.0
+    },
+    "n_G1_dispatch_cliffs": {
+      "mean": 0.5812785388127854,
+      "median": 1.0,
+      "p75": 1.0,
+      "p90": 1.0,
+      "p95": 1.0,
+      "p99": 1.0,
+      "max": 1.0
+    },
+    "n_system_dispatch_regimes": {
+      "mean": 1.5812785388127855,
+      "median": 2.0,
+      "p75": 2.0,
+      "p90": 2.0,
+      "p95": 2.0,
+      "p99": 2.0,
+      "max": 2.0
+    },
+    "n_structural_transitions": {
+      "mean": 0.5812785388127854,
+      "median": 1.0,
+      "p75": 1.0,
+      "p90": 1.0,
+      "p95": 1.0,
+      "p99": 1.0,
+      "max": 1.0
+    },
+    "n_local_profit_maxima": {
+      "mean": 1.1625570776255707,
+      "median": 1.0,
+      "p75": 2.0,
+      "p90": 3.0,
+      "p95": 4.0,
+      "p99": 4.0,
+      "max": 4.0
+    }
+  },
+  "jump_count_fractions": {
+    "0": 0.4187214611872146,
+    "1": 0.5812785388127854,
+    "2": 0.0,
+    ">=3": 0.0
+  },
+  "event_classification_counts": {
+    "MULTIPLE_MECHANISMS": 30552
+  },
+  "crossing_alignment_counts": {
+    "crossing_in_interval": 30552,
+    "not_crossing_in_interval": 0
+  },
+  "crossing_aligned_fraction": 1.0,
+  "interpretation": "Dispatch differences, not profit changes or active-set changes alone, define material jumps."
+}
