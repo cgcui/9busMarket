@@ -1,0 +1,4 @@
+{
+  "status": "OPPONENT_BELIEF_RULE_UNRESOLVED",
+  "reason": "opponent belief rule unresolved; stopped before expected-value action selection"
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS_PRIVATE_TIE_AND_FLAT_AUDIT",
+  "private_cell_scope": true,
+  "flat_or_tied_cells": 37284,
+  "strict_unique_cells": 15276,
+  "tie_size_distribution": {
+    "1": 15276,
+    "2": 15276,
+    "43": 22008
+  }
+}

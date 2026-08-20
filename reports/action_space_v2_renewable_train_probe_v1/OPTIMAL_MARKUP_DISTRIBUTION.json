@@ -1,0 +1,13 @@
+{
+  "status": "PASS_PRIVATE_OPTIMAL_MARKUP_DISTRIBUTION",
+  "scope": "private hidden k_G3 cells",
+  "frequency": {
+    "1.0": 22008,
+    "1.5": 5092,
+    "1.5750000000000002": 5092,
+    "1.65": 5092,
+    "1.7999999999999998": 5092,
+    "1.95": 5092,
+    "2.25": 5092
+  }
+}

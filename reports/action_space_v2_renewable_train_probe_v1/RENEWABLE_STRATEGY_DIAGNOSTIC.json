@@ -1,0 +1,17 @@
+{
+  "status": "PASS_PRIVATE_RENEWABLE_STRATEGY_DESCRIPTIVE",
+  "scope": "private hidden k_G3 cells; descriptive only",
+  "best_markup_frequency": {
+    "1.0": 22008,
+    "1.5": 5092,
+    "1.5750000000000002": 5092,
+    "1.65": 5092,
+    "1.7999999999999998": 5092,
+    "1.95": 5092,
+    "2.25": 5092
+  },
+  "by_surplus": {
+    "false": 1.4605432410704031,
+    "true": 1.0
+  }
+}

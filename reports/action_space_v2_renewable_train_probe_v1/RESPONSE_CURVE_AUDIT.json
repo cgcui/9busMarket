@@ -1,0 +1,82 @@
+{
+  "status": "PASS_RESPONSE_CURVE_AUDIT",
+  "rows": 2207520,
+  "dispatch_cliff_count": 30552,
+  "binding_transition_count": 0,
+  "local_maxima_count": 52560,
+  "local_maxima_at_2_30": 0,
+  "largest_abs_dispatch_step_mw": 200.91181506849384,
+  "largest_abs_profit_step": 5022.795376712347,
+  "maxima_preview": [
+    {
+      "timestamp_utc": "2024-06-01T00:00:00+00:00",
+      "k_g3": 1.0,
+      "k_g1": 1.5,
+      "profit": 622.7614265928,
+      "at_upper_bound": false
+    },
+    {
+      "timestamp_utc": "2024-06-01T00:00:00+00:00",
+      "k_g3": 1.05,
+      "k_g1": 1.5750000000000002,
+      "profit": 716.1756405817202,
+      "at_upper_bound": false
+    },
+    {
+      "timestamp_utc": "2024-06-01T00:00:00+00:00",
+      "k_g3": 1.1,
+      "k_g1": 1.65,
+      "profit": 809.5898545706402,
+      "at_upper_bound": false
+    },
+    {
+      "timestamp_utc": "2024-06-01T00:00:00+00:00",
+      "k_g3": 1.2,
+      "k_g1": 1.7999999999999998,
+      "profit": 996.4182825484802,
+      "at_upper_bound": false
+    },
+    {
+      "timestamp_utc": "2024-06-01T00:00:00+00:00",
+      "k_g3": 1.3,
+      "k_g1": 1.95,
+      "profit": 1183.2467105263202,
+      "at_upper_bound": false
+    },
+    {
+      "timestamp_utc": "2024-06-01T00:00:00+00:00",
+      "k_g3": 1.5,
+      "k_g1": 2.25,
+      "profit": 1556.903566482,
+      "at_upper_bound": false
+    },
+    {
+      "timestamp_utc": "2024-06-01T01:00:00+00:00",
+      "k_g3": 1.0,
+      "k_g1": 1.5,
+      "profit": 502.6108033241021,
+      "at_upper_bound": false
+    },
+    {
+      "timestamp_utc": "2024-06-01T01:00:00+00:00",
+      "k_g3": 1.05,
+      "k_g1": 1.5750000000000002,
+      "profit": 578.0024238227177,
+      "at_upper_bound": false
+    },
+    {
+      "timestamp_utc": "2024-06-01T01:00:00+00:00",
+      "k_g3": 1.1,
+      "k_g1": 1.65,
+      "profit": 653.3940443213328,
+      "at_upper_bound": false
+    },
+    {
+      "timestamp_utc": "2024-06-01T01:00:00+00:00",
+      "k_g3": 1.2,
+      "k_g1": 1.7999999999999998,
+      "profit": 804.1772853185632,
+      "at_upper_bound": false
+    }
+  ]
+}

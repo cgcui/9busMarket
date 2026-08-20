@@ -1,0 +1,14 @@
+{
+  "status": "PASS_ACTION_SPACE_V2_168H_SMOKE",
+  "grid_count": 43,
+  "k_g3_count": 6,
+  "checks": {
+    "rows": 130032,
+    "expected_rows": 130032,
+    "all_optimal": true,
+    "balance_pass": true,
+    "branch_limit_pass": true,
+    "exogenous_state_invariant": true,
+    "surplus_invariant": true
+  }
+}

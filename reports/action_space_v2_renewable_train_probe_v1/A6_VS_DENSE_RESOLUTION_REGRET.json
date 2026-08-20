@@ -1,0 +1,34 @@
+{
+  "status": "PASS_A6_VS_DENSE_RESOLUTION_AUDIT",
+  "private_cell_scope": true,
+  "old_a6": [
+    1.0,
+    1.05,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "dense_probe_count": 43,
+  "dense_probe_upper_bound": 2.3,
+  "resolution_regret": {
+    "mean": 262.6380936492186,
+    "median": 0.0,
+    "p75": 322.3306786703607,
+    "p90": 862.8822714681428,
+    "p95": 1268.9129501385082,
+    "p99": 2207.54179362881,
+    "max": 3163.6772260274083
+  },
+  "cells_new_point_strictly_beats_a6": 25460,
+  "cells_at_2_30": 0,
+  "dense_optimal_markup_frequency": {
+    "1.0": 22008,
+    "1.5": 5092,
+    "1.5750000000000002": 5092,
+    "1.65": 5092,
+    "1.7999999999999998": 5092,
+    "1.95": 5092,
+    "2.25": 5092
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "status": "PASS_UPPER_BOUND_2_30_AUDIT",
+  "private_cell_scope": true,
+  "upper_bound": 2.3,
+  "argmax_at_2_30": 0,
+  "argmax_fraction": 0.0,
+  "positive_profit_slope_2_25_to_2_30": 0,
+  "profit_slope": {
+    "mean": -166.09752004890115,
+    "median": 0.0,
+    "p75": 0.0,
+    "p90": 0.0,
+    "p95": 0.0,
+    "p99": 0.0,
+    "max": 0.0
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "status": "PASS_PARTITION",
+  "month": "2024-07",
+  "row_count": 191952,
+  "input_hash": "6ebfcd1d9e69a46325b6a3bd83e109b7b93ae28262f631a78c7eee792d9c4f4c",
+  "output_hash": "046c1b6f06d05c2a3395996e9f9501303bcc76b5634c069106479f4c090a99c0",
+  "grid_count": 43,
+  "k_g3_count": 6,
+  "complete": true
+}

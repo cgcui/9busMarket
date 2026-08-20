@@ -1,0 +1,11 @@
+{
+  "status": "PASS_SURPLUS_HOUR_STRATEGIC_AUDIT",
+  "train_hours": 8760,
+  "surplus_hours": 53,
+  "raw_negative_hours": 15,
+  "residual_positive_below_sync_floor_hours": 38,
+  "surplus_export_total_mwh": 1487.086207454368,
+  "strategic_cells_in_surplus_hours": 13674,
+  "state_frozen_across_bids": true,
+  "economic_or_strategic": false
+}

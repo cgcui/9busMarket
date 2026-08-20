@@ -1,0 +1,25 @@
+{
+  "identifier": "ACTION_SPACE_V2_RENEWABLE_TRAIN_PROBE",
+  "parent_commit": "ff6557abe5e20bea79ddb9e216888f2a0b0035e6",
+  "train_only": true,
+  "hours": 8760,
+  "time_start_utc": "2024-06-01T00:00:00Z",
+  "time_end_utc": "2025-05-31T23:00:00Z",
+  "primary_case": "C2_BTM_SOLAR_PLUS_FIXED_WIND",
+  "action_space_status": "PROBE_ONLY_NOT_MODEL_ACTIONS",
+  "upper_bound": 2.30,
+  "regular_step": 0.05,
+  "surplus_accounting": {
+    "version": "FIXED_RENEWABLE_SURPLUS_EXPORT_V1",
+    "economic": false,
+    "strategic": false,
+    "state_frozen_across_bids": true
+  },
+  "stop_rules": {
+    "dev_read": false,
+    "holdout_read": false,
+    "sft_started": false,
+    "grpo_started": false,
+    "compact_action_selection": false
+  }
+}

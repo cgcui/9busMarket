@@ -1,0 +1,374 @@
+{
+  "config": {
+    "identifier": "ACTION_SPACE_V2_RENEWABLE_TRAIN_PROBE",
+    "parent_commit": "ff6557abe5e20bea79ddb9e216888f2a0b0035e6",
+    "train_only": true,
+    "hours": 8760,
+    "time_start_utc": "2024-06-01T00:00:00Z",
+    "time_end_utc": "2025-05-31T23:00:00Z",
+    "primary_case": "C2_BTM_SOLAR_PLUS_FIXED_WIND",
+    "action_space_status": "PROBE_ONLY_NOT_MODEL_ACTIONS",
+    "upper_bound": 2.3,
+    "regular_step": 0.05,
+    "surplus_accounting": {
+      "version": "FIXED_RENEWABLE_SURPLUS_EXPORT_V1",
+      "economic": false,
+      "strategic": false,
+      "state_frozen_across_bids": true
+    },
+    "stop_rules": {
+      "dev_read": false,
+      "holdout_read": false,
+      "sft_started": false,
+      "grpo_started": false,
+      "compact_action_selection": false
+    }
+  },
+  "grid": {
+    "a6_frozen": [
+      1.0,
+      1.05,
+      1.1,
+      1.2,
+      1.3,
+      1.5
+    ],
+    "regular_grid": [
+      1.0,
+      1.05,
+      1.1,
+      1.15,
+      1.2,
+      1.25,
+      1.3,
+      1.35,
+      1.4,
+      1.45,
+      1.5,
+      1.55,
+      1.6,
+      1.65,
+      1.7,
+      1.75,
+      1.8,
+      1.85,
+      1.9,
+      1.95,
+      2.0,
+      2.05,
+      2.1,
+      2.15,
+      2.2,
+      2.25,
+      2.3
+    ],
+    "crossings": [
+      {
+        "k_g3": 1.0,
+        "k_g1_cross": 1.5
+      },
+      {
+        "k_g3": 1.05,
+        "k_g1_cross": 1.5750000000000002
+      },
+      {
+        "k_g3": 1.1,
+        "k_g1_cross": 1.6500000000000001
+      },
+      {
+        "k_g3": 1.2,
+        "k_g1_cross": 1.7999999999999998
+      },
+      {
+        "k_g3": 1.3,
+        "k_g1_cross": 1.9500000000000002
+      },
+      {
+        "k_g3": 1.5,
+        "k_g1_cross": 2.25
+      }
+    ],
+    "points": [
+      {
+        "k_g1": 1.0,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.05,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.1,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.15,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.2,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.25,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.3,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.35,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.4,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.45,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.49,
+        "sources": [
+          "crossing_minus_0.01"
+        ]
+      },
+      {
+        "k_g1": 1.5,
+        "sources": [
+          "crossing",
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.51,
+        "sources": [
+          "crossing_plus_0.01"
+        ]
+      },
+      {
+        "k_g1": 1.55,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.5650000000000002,
+        "sources": [
+          "crossing_minus_0.01"
+        ]
+      },
+      {
+        "k_g1": 1.5750000000000002,
+        "sources": [
+          "crossing"
+        ]
+      },
+      {
+        "k_g1": 1.5850000000000002,
+        "sources": [
+          "crossing_plus_0.01"
+        ]
+      },
+      {
+        "k_g1": 1.6,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.6400000000000001,
+        "sources": [
+          "crossing_minus_0.01"
+        ]
+      },
+      {
+        "k_g1": 1.65,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.6500000000000001,
+        "sources": [
+          "crossing"
+        ]
+      },
+      {
+        "k_g1": 1.6600000000000001,
+        "sources": [
+          "crossing_plus_0.01"
+        ]
+      },
+      {
+        "k_g1": 1.7,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.75,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.7899999999999998,
+        "sources": [
+          "crossing_minus_0.01"
+        ]
+      },
+      {
+        "k_g1": 1.7999999999999998,
+        "sources": [
+          "crossing"
+        ]
+      },
+      {
+        "k_g1": 1.8,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.8099999999999998,
+        "sources": [
+          "crossing_plus_0.01"
+        ]
+      },
+      {
+        "k_g1": 1.85,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.9,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.9400000000000002,
+        "sources": [
+          "crossing_minus_0.01"
+        ]
+      },
+      {
+        "k_g1": 1.95,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 1.9500000000000002,
+        "sources": [
+          "crossing"
+        ]
+      },
+      {
+        "k_g1": 1.9600000000000002,
+        "sources": [
+          "crossing_plus_0.01"
+        ]
+      },
+      {
+        "k_g1": 2.0,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 2.05,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 2.1,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 2.15,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 2.2,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 2.24,
+        "sources": [
+          "crossing_minus_0.01"
+        ]
+      },
+      {
+        "k_g1": 2.25,
+        "sources": [
+          "crossing",
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      },
+      {
+        "k_g1": 2.26,
+        "sources": [
+          "crossing_plus_0.01"
+        ]
+      },
+      {
+        "k_g1": 2.3,
+        "sources": [
+          "regular_1.00_to_2.30_step_0.05"
+        ]
+      }
+    ],
+    "count": 43,
+    "is_model_action_space": false
+  },
+  "case_snapshot_sha256": "cd3817ffa82604a6875215cafa9cf20860f444c3e77ecdd6888b3c7aaa173882",
+  "a6": [
+    1.0,
+    1.05,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "k_g3": [
+    1.0,
+    1.05,
+    1.1,
+    1.2,
+    1.3,
+    1.5
+  ],
+  "anchor": null
+}

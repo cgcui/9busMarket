@@ -1,0 +1,9 @@
+{
+  "rows": 130032,
+  "output_hash": "f0b14d5fa1592e14e1bcdb3b772f836cef162f6f6ddd36ab01fa7d6db2e6643f",
+  "input_hashes": {
+    "C0_NO_RENEWABLE": "42fa9644c808dcf70e1b233ca4d534ea60e48152109b5132d6aeb5f943adbf14",
+    "C1_BTM_SOLAR_ONLY": "23158defe1e381ca5d5f57290d3db097091aed0366ab4202ef5705a6a7f1993e",
+    "C2_BTM_SOLAR_PLUS_FIXED_WIND": "698e779b9edb13016e0bb98d07f1a18a08504d30a24aaec1f89374aedf81e585"
+  }
+}

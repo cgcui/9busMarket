@@ -1,0 +1,78 @@
+{
+  "status": "PASS_FULL_TRAIN_C2_DENSE_PROBE",
+  "expected_rows": 2260080,
+  "actual_rows": 2260080,
+  "grid_count": 43,
+  "k_g3_count": 6,
+  "checks": {
+    "row_count": true,
+    "all_optimal": true,
+    "balance_pass": true,
+    "branch_limit_pass": true,
+    "finite_generation": true,
+    "exogenous_state_invariant": true,
+    "partitions_complete": true
+  },
+  "partitions": [
+    {
+      "month": "2024-06",
+      "row_count": 185760,
+      "hash_verified": true
+    },
+    {
+      "month": "2024-07",
+      "row_count": 191952,
+      "hash_verified": true
+    },
+    {
+      "month": "2024-08",
+      "row_count": 191952,
+      "hash_verified": true
+    },
+    {
+      "month": "2024-09",
+      "row_count": 185760,
+      "hash_verified": true
+    },
+    {
+      "month": "2024-10",
+      "row_count": 191952,
+      "hash_verified": true
+    },
+    {
+      "month": "2024-11",
+      "row_count": 185760,
+      "hash_verified": true
+    },
+    {
+      "month": "2024-12",
+      "row_count": 191952,
+      "hash_verified": true
+    },
+    {
+      "month": "2025-01",
+      "row_count": 191952,
+      "hash_verified": true
+    },
+    {
+      "month": "2025-02",
+      "row_count": 173376,
+      "hash_verified": true
+    },
+    {
+      "month": "2025-03",
+      "row_count": 191952,
+      "hash_verified": true
+    },
+    {
+      "month": "2025-04",
+      "row_count": 185760,
+      "hash_verified": true
+    },
+    {
+      "month": "2025-05",
+      "row_count": 191952,
+      "hash_verified": true
+    }
+  ]
+}
