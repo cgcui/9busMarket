@@ -37,8 +37,10 @@
   "wind_as_opf_variable": false,
   "utility_solar_injection_mw": 0.0,
   "raw_negative_net_load_hours": 15,
-  "surplus_floor_policy_active": true,
-  "max_clipped_mw_per_case": 55.32672665369647,
-  "max_minimum_generation_uplift_mw_per_case": 30.0,
+  "surplus_accounting_version": "FIXED_RENEWABLE_SURPLUS_EXPORT_V1",
+  "surplus_export_active": true,
+  "surplus_export_hours_c2": 53,
+  "max_surplus_export_mw_c2": 85.32672665369647,
+  "max_energy_balance_residual_mw_c2": 7.105427357601002e-15,
   "pass": true
 }

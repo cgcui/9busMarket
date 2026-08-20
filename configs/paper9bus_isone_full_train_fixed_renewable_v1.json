@@ -34,6 +34,17 @@
     "available_power_known": false,
     "opf_decision_variable": false
   },
+  "surplus_accounting": {
+    "version": "FIXED_RENEWABLE_SURPLUS_EXPORT_V1",
+    "field": "surplus_export_mw",
+    "role": "NON_ECONOMIC_EXTERNAL_EXPORT_DUMP_SINK",
+    "formula": "raw_residual_mw + surplus_export_mw = solver_residual_mw",
+    "enters_g1_profit": false,
+    "strategic_action": false,
+    "changes_gross_load": false,
+    "changes_btm_solar": false,
+    "changes_wind_proxy": false
+  },
   "solver": {
     "backend": "existing frozen solve_dcopf",
     "k_g1": 1.0,

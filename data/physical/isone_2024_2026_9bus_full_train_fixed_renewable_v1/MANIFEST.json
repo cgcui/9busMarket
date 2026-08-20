@@ -1,13 +1,13 @@
 {
   "identifier": "Paper9Bus-ISONE-FixedRenewable-Physics-v1",
-  "status": "PASS_FIXED_RENEWABLE_PHYSICS_V1_8760H",
+  "status": "PASS_FULL_TRAIN_FIXED_RENEWABLE_PHYSICS_V1",
   "case_ids": [
     "C0_NO_RENEWABLE",
     "C1_BTM_SOLAR_ONLY",
     "C2_BTM_SOLAR_PLUS_FIXED_WIND"
   ],
   "frozen_case_sha256": "523a5b6ad47f3b3ad247c43bbe82640575260362051ac63bb6ef5a69f1c1cf7c",
-  "config_sha256": "ba2c94cb29948e86189d7c6ede311285e3251bcc4ae28b2622fb648b9de45e1c",
+  "config_sha256": "8917ef2e447b2517f645866e4e8046d3b527b72cb5b35ab6136dd20e992f1d89",
   "source_audit": {
     "source_files": {
       "bridge": {
@@ -8902,8 +8902,10 @@
     "deterministic_rerun": true,
     "physical_effect": true,
     "raw_negative_net_load_observed": true,
-    "surplus_floor_policy_active": true,
-    "surplus_floor_accounting": true
+    "surplus_accounting_gate": true,
+    "surplus_export_non_economic": true,
+    "surplus_export_non_strategic": true,
+    "surplus_source_binding_unchanged": true
   },
   "forecast_fields_used_by_physical_solver": 0,
   "utility_solar_injection_mw": 0.0,
@@ -8911,11 +8913,15 @@
   "old_renewable_physics_overwritten": false,
   "dev_or_holdout_read": false,
   "renewable_surplus_handling": {
+    "version": "FIXED_RENEWABLE_SURPLUS_EXPORT_V1",
     "active": true,
-    "rule": "For full TRAIN only, clip solver-side residual bus load at zero, then add any shortfall to the frozen 30 MW aggregate generator Pmin according to base-load-share weights; retain raw residual, clipped surplus, and uplift provenance. This represents surplus export/spill and the frozen minimum-synchronous-generation boundary, not an OPF decision variable.",
+    "rule": "For full TRAIN only, add an explicit non-economic surplus_export_mw sink to raw residual load. Its bus allocation first removes negative bus residuals, then covers any shortfall to the frozen 30 MW aggregate generator Pmin according to base-load-share weights. Wind, BTM solar, and gross load remain unchanged; export is not an OPF or strategic action variable.",
     "raw_negative_net_load_hours": 15,
-    "max_clipped_mw_per_case": 55.32672665369647,
-    "max_minimum_generation_uplift_mw_per_case": 30.0
+    "surplus_export_hours_c2": 53,
+    "max_surplus_export_mw_c2": 85.32672665369647,
+    "max_clipped_renewable_mw_c2": 55.32672665369647,
+    "max_minimum_generation_uplift_mw_c2": 30.0,
+    "energy_balance_max_abs_residual_mw_c2": 7.105427357601002e-15
   },
   "stop_rule": "TRAIN-only materialization for 8760 hours; DEV, HOLDOUT, Action-Space-v2, SFT, and GRPO are untouched."
 }

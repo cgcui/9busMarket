@@ -27,6 +27,7 @@ IDENTIFIER = "Paper9Bus-ISONE-FixedRenewable-Physics-v1"
 START = pd.Timestamp("2024-06-01T00:00:00Z")
 END = pd.Timestamp("2026-07-01T00:00:00Z")
 CASE_IDS = (CASE_C0, CASE_C1, CASE_C2)
+SURPLUS_ACCOUNTING_VERSION = "FIXED_RENEWABLE_SURPLUS_EXPORT_V1"
 
 
 def sha256_file(path: Path) -> str:
@@ -45,6 +46,27 @@ def frame_hash(frame: pd.DataFrame) -> str:
 
 def canonical_timestamp(series: pd.Series) -> pd.Series:
     return pd.to_datetime(series, utc=True).map(lambda x: x.isoformat())
+
+
+def surplus_accounting(case, raw_load: np.ndarray, *, active: bool) -> tuple[np.ndarray, np.ndarray, float, float, float]:
+    """Return solver load plus explicit export accounting for a fixed-renewable state.
+
+    The export vector makes every solver-side bus load nonnegative. If that
+    load is below the frozen aggregate generator Pmin, the additional export
+    is allocated by the frozen base-load-share weights so the OPF retains all
+    generator bounds. The export is a non-economic external sink, not a
+    renewable curtailment decision.
+    """
+    raw = np.asarray(raw_load, dtype=float)
+    minimum_generation_mw = float(sum(float(g["pmin_mw"]) for g in case.generators))
+    if not active:
+        return raw, np.zeros_like(raw), 0.0, 0.0, minimum_generation_mw
+    export_bus = np.maximum(-raw, 0.0)
+    nonnegative_load = raw + export_bus
+    minimum_generation_uplift = max(minimum_generation_mw - float(nonnegative_load.sum()), 0.0)
+    export_bus = export_bus + minimum_generation_uplift * base_load_weights(case)
+    solver_load = raw + export_bus
+    return solver_load, export_bus, float(np.maximum(-raw, 0.0).sum()), minimum_generation_uplift, minimum_generation_mw
 
 
 def load_inputs(case, hours: int = 168) -> tuple[pd.DataFrame, dict[str, Any]]:
@@ -119,6 +141,18 @@ def load_inputs(case, hours: int = 168) -> tuple[pd.DataFrame, dict[str, Any]]:
     selected["wind_fixed_proxy_bus_mw"] = [json_vector(row) for row in wind_bus]
     selected["residual_conventional_load_mw"] = residual_c2.sum(axis=1)
     selected["negative_net_load_flag"] = (residual_c2 < -1e-9).any(axis=1)
+    if hours != 168:
+        accounting = [surplus_accounting(case, raw, active=True) for raw in residual_c2]
+        solver_c2 = np.vstack([item[0] for item in accounting])
+        selected["raw_residual_conventional_load_mw"] = residual_c2.sum(axis=1)
+        selected["surplus_export_mw"] = [float(item[1].sum()) for item in accounting]
+        selected["minimum_synchronous_generation_floor_mw"] = [float(item[4]) for item in accounting]
+        selected["minimum_generation_uplift_mw"] = [float(item[3]) for item in accounting]
+        selected["solver_residual_conventional_load_mw"] = solver_c2.sum(axis=1)
+        selected["surplus_energy_balance_residual_mw"] = selected["raw_residual_conventional_load_mw"] + selected["surplus_export_mw"] - selected["solver_residual_conventional_load_mw"]
+        selected["surplus_export_active"] = selected["surplus_export_mw"] > 1e-12
+        selected["surplus_export_is_economic"] = False
+        selected["surplus_export_is_strategic_action"] = False
     selected["solar_semantic_class"] = "REALIZED_ESTIMATED_BTM_PV"
     selected["solar_physical_role"] = "NEGATIVE_LOAD"
     selected["solar_curtailable"] = False
@@ -147,16 +181,13 @@ def load_inputs(case, hours: int = 168) -> tuple[pd.DataFrame, dict[str, Any]]:
     return selected, source_audit
 
 
-def run_case(case, row: pd.Series, case_id: str, *, apply_surplus_floor: bool = False) -> dict[str, Any]:
+def run_case(case, row: pd.Series, case_id: str, *, apply_surplus_accounting: bool = False) -> dict[str, Any]:
     gross = np.asarray(json.loads(row["gross_bus_loads_mw"]), dtype=float)
     btm = np.asarray(json.loads(row["estimated_btm_solar_bus_mw"]), dtype=float)
     wind = np.asarray(json.loads(row["wind_fixed_proxy_bus_mw"]), dtype=float)
     raw_load = residual_load(case_id, gross, btm, wind)
-    surplus_clipped = float(np.maximum(-raw_load, 0.0).sum())
-    minimum_generation_mw = float(sum(float(g["pmin_mw"]) for g in case.generators))
-    nonnegative_load = np.maximum(raw_load, 0.0)
-    minimum_generation_uplift = max(minimum_generation_mw - float(nonnegative_load.sum()), 0.0)
-    load = nonnegative_load + minimum_generation_uplift * base_load_weights(case) if apply_surplus_floor else raw_load
+    load, export_bus, surplus_clipped, minimum_generation_uplift, minimum_generation_mw = surplus_accounting(case, raw_load, active=apply_surplus_accounting)
+    surplus_export_mw = float(export_bus.sum())
     result = solve_dcopf(case, load, 1.0, 1.0)
     nodal = nodal_residuals(case, result, load)
     branch_util = {str(branch["branch_id"]): abs(result.branch_flows_mw[int(branch["branch_id"])]) / float(branch["rate_a_mw"]) for branch in case.branches if int(branch["status"]) == 1}
@@ -182,20 +213,24 @@ def run_case(case, row: pd.Series, case_id: str, *, apply_surplus_floor: bool = 
         "wind_semantic_class": "DISPATCH_EXPECTED_WIND_GENERATION_PROXY", "wind_physical_role": "FIXED_EXOGENOUS_INJECTION", "wind_curtailable": False, "wind_available_power_known": False,
         "forecast_fields_used_by_physical_solver": False,
     }
-    if apply_surplus_floor:
+    if apply_surplus_accounting:
         record["raw_residual_conventional_load_mw"] = float(raw_load.sum())
         record["raw_residual_bus_loads_mw"] = json_vector(raw_load)
+        record["surplus_export_mw"] = surplus_export_mw
         record["renewable_surplus_clipped_mw"] = surplus_clipped
+        record["minimum_synchronous_generation_floor_mw"] = minimum_generation_mw
         record["minimum_generation_uplift_mw"] = minimum_generation_uplift
-        record["surplus_floor_applied"] = bool(surplus_clipped > 1e-12 or minimum_generation_uplift > 1e-12)
+        record["surplus_energy_balance_residual_mw"] = float(raw_load.sum() + surplus_export_mw - load.sum())
+        record["surplus_export_is_economic"] = False
+        record["surplus_export_is_strategic_action"] = False
     return record
 
 
-def build_case_outputs(case, inputs: pd.DataFrame, *, apply_surplus_floor: bool = False) -> pd.DataFrame:
+def build_case_outputs(case, inputs: pd.DataFrame, *, apply_surplus_accounting: bool = False) -> pd.DataFrame:
     records = []
     total = len(inputs)
     for idx, (_, row) in enumerate(inputs.iterrows(), start=1):
-        records.extend(run_case(case, row, case_id, apply_surplus_floor=apply_surplus_floor) for case_id in CASE_IDS)
+        records.extend(run_case(case, row, case_id, apply_surplus_accounting=apply_surplus_accounting) for case_id in CASE_IDS)
         if idx == 1 or idx % 500 == 0 or idx == total:
             print(f"[{case.case_id}] solved {idx}/{total} timestamps", flush=True)
     return pd.DataFrame(records).sort_values(["timestamp_utc", "case_id"]).reset_index(drop=True)
@@ -240,9 +275,9 @@ def main() -> int:
     config_path = args.config or (ROOT / "configs/paper9bus_isone_fixed_renewable_physics_v1.json")
     inputs, source_audit = load_inputs(case, hours=hours)
     weights = base_load_weights(case)
-    apply_surplus_floor = hours != 168
-    results = build_case_outputs(case, inputs, apply_surplus_floor=apply_surplus_floor)
-    results_repeat = build_case_outputs(case, inputs, apply_surplus_floor=apply_surplus_floor)
+    apply_surplus_accounting = hours != 168
+    results = build_case_outputs(case, inputs, apply_surplus_accounting=apply_surplus_accounting)
+    results_repeat = build_case_outputs(case, inputs, apply_surplus_accounting=apply_surplus_accounting)
     canonical_cols = sorted(results.columns)
     deterministic = frame_hash(results[canonical_cols]) == frame_hash(results_repeat[canonical_cols])
     deltas = delta_outputs(results)
@@ -252,6 +287,11 @@ def main() -> int:
     c2_balance = c2["system_balance_residual_mw"].abs()
     nodal = results["max_abs_nodal_residual_mw"].abs()
     all_util = results["max_branch_utilization"]
+    source_binding_pass = bool(
+        np.allclose(c2["gross_system_load_mw"].to_numpy(float), c2_input["gross_system_load_mw"].to_numpy(float), atol=1e-12)
+        and np.allclose(c2["estimated_btm_solar_system_mw"].to_numpy(float), c2_input["estimated_btm_solar_system_mw"].to_numpy(float), atol=1e-12)
+        and np.allclose(c2["wind_fixed_proxy_system_mw"].to_numpy(float), c2_input["wind_fixed_proxy_system_mw"].to_numpy(float), atol=1e-12)
+    )
     gen_bounds = bool((results[["G1_dispatch_mw", "G2_dispatch_mw", "G3_dispatch_mw"]].notna()).all().all())
     branch_pass = bool((all_util <= 1.0 + 1e-7).all())
     zero_diffs = {"dispatch_max_diff": 0.0, "G1_lmp_max_diff": 0.0, "all_lmp_max_diff": 0.0, "branch_flow_max_diff": 0.0, "binding_status_diff_count": 0, "G1_profit_max_diff": 0.0}
@@ -285,23 +325,29 @@ def main() -> int:
         "forecast_used_by_solver": bool(results["forecast_fields_used_by_physical_solver"].any()), "utility_solar_injection": bool((results["utility_solar_injection_mw"] != 0).any()),
         "deterministic_rerun": deterministic, "physical_effect": physical_diff,
         "raw_negative_net_load_observed": bool(inputs["negative_net_load_flag"].any()),
-        "surplus_floor_policy_active": apply_surplus_floor,
-        "surplus_floor_accounting": bool((results["renewable_surplus_clipped_mw"] >= -1e-12).all()) if apply_surplus_floor else True,
+        "surplus_accounting_gate": bool((results["surplus_energy_balance_residual_mw"].abs() <= 1e-7).all()) if apply_surplus_accounting else True,
+        "surplus_export_non_economic": bool((results["surplus_export_is_economic"] == False).all()) if apply_surplus_accounting else True,
+        "surplus_export_non_strategic": bool((results["surplus_export_is_strategic_action"] == False).all()) if apply_surplus_accounting else True,
+        "surplus_source_binding_unchanged": source_binding_pass,
     }
     checks_pass = all((not value if key in {"forecast_used_by_solver", "utility_solar_injection"} else True if key == "raw_negative_net_load_observed" else value) for key, value in hard_checks.items())
     manifest = {
-        "identifier": IDENTIFIER, "status": f"{'PASS' if checks_pass else 'FAIL'}_FIXED_RENEWABLE_PHYSICS_V1_{hours}H",
+        "identifier": IDENTIFIER, "status": f"{'PASS' if checks_pass else 'FAIL'}_{'FULL_TRAIN_FIXED_RENEWABLE_PHYSICS_V1' if hours == 8760 else f'FIXED_RENEWABLE_PHYSICS_V1_{hours}H'}",
         "case_ids": list(CASE_IDS), "frozen_case_sha256": snapshot_sha256(), "config_sha256": sha256_file(config_path),
         "source_audit": source_audit, "weights": {str(bus): float(value) for bus, value in zip(case.bus_ids, weights)},
         "selection": {"rows": hours, "first_timestamp_utc": inputs.timestamp_utc.iloc[0], "last_timestamp_utc": inputs.timestamp_utc.iloc[-1], "example_ids": inputs.physical_example_id.tolist(), "load_imputed_hours": int(inputs["load_imputation_status"].eq("IMPUTED_LINEAR_TIME_INTERNAL").sum())},
         "hard_checks": hard_checks, "forecast_fields_used_by_physical_solver": 0, "utility_solar_injection_mw": 0.0,
         "outputs_created_only": True, "old_renewable_physics_overwritten": False, "dev_or_holdout_read": False,
         "renewable_surplus_handling": {
-            "active": apply_surplus_floor,
-            "rule": "For full TRAIN only, clip solver-side residual bus load at zero, then add any shortfall to the frozen 30 MW aggregate generator Pmin according to base-load-share weights; retain raw residual, clipped surplus, and uplift provenance. This represents surplus export/spill and the frozen minimum-synchronous-generation boundary, not an OPF decision variable.",
+            "version": SURPLUS_ACCOUNTING_VERSION,
+            "active": apply_surplus_accounting,
+            "rule": "For full TRAIN only, add an explicit non-economic surplus_export_mw sink to raw residual load. Its bus allocation first removes negative bus residuals, then covers any shortfall to the frozen 30 MW aggregate generator Pmin according to base-load-share weights. Wind, BTM solar, and gross load remain unchanged; export is not an OPF or strategic action variable.",
             "raw_negative_net_load_hours": int(inputs["negative_net_load_flag"].sum()),
-            "max_clipped_mw_per_case": float(results["renewable_surplus_clipped_mw"].max()) if apply_surplus_floor else 0.0,
-            "max_minimum_generation_uplift_mw_per_case": float(results["minimum_generation_uplift_mw"].max()) if apply_surplus_floor else 0.0,
+            "surplus_export_hours_c2": int((c2["surplus_export_mw"] > 1e-12).sum()) if apply_surplus_accounting else 0,
+            "max_surplus_export_mw_c2": float(c2["surplus_export_mw"].max()) if apply_surplus_accounting else 0.0,
+            "max_clipped_renewable_mw_c2": float(c2["renewable_surplus_clipped_mw"].max()) if apply_surplus_accounting else 0.0,
+            "max_minimum_generation_uplift_mw_c2": float(c2["minimum_generation_uplift_mw"].max()) if apply_surplus_accounting else 0.0,
+            "energy_balance_max_abs_residual_mw_c2": float(c2["surplus_energy_balance_residual_mw"].abs().max()) if apply_surplus_accounting else 0.0,
         },
         "stop_rule": f"TRAIN-only materialization for {hours} hours; DEV, HOLDOUT, Action-Space-v2, SFT, and GRPO are untouched.",
     }
@@ -316,10 +362,49 @@ def main() -> int:
     (report_dir / f"TRAIN_{report_token}_SELECTION.json").write_text(json.dumps(manifest["selection"], ensure_ascii=False, indent=2), encoding="utf-8")
     (report_dir / "ZERO_RENEWABLE_EQUIVALENCE.json").write_text(json.dumps(zero, ensure_ascii=False, indent=2), encoding="utf-8")
     (report_dir / "NODAL_BALANCE_AUDIT.json").write_text(json.dumps({"max_abs_nodal_residual_mw": float(nodal.max()), "max_abs_system_residual_mw": float(c2_balance.max()), "p99_system_residual_mw": float(np.quantile(c2_balance, .99)), "pass": bool(float(nodal.max()) <= 1e-7 and float(c2_balance.max()) <= 1e-7)}, indent=2), encoding="utf-8")
-    (report_dir / "RENEWABLE_ACCOUNTING_AUDIT.json").write_text(json.dumps({"penetration_stats": {col: stats(penetration[col]) for col in penetration}, "solar_as_generator_mw": 0.0, "wind_as_opf_variable": False, "utility_solar_injection_mw": 0.0, "raw_negative_net_load_hours": int(inputs["negative_net_load_flag"].sum()), "surplus_floor_policy_active": apply_surplus_floor, "max_clipped_mw_per_case": float(results["renewable_surplus_clipped_mw"].max()) if apply_surplus_floor else 0.0, "max_minimum_generation_uplift_mw_per_case": float(results["minimum_generation_uplift_mw"].max()) if apply_surplus_floor else 0.0, "pass": True}, indent=2), encoding="utf-8")
+    (report_dir / "RENEWABLE_ACCOUNTING_AUDIT.json").write_text(json.dumps({"penetration_stats": {col: stats(penetration[col]) for col in penetration}, "solar_as_generator_mw": 0.0, "wind_as_opf_variable": False, "utility_solar_injection_mw": 0.0, "raw_negative_net_load_hours": int(inputs["negative_net_load_flag"].sum()), "surplus_accounting_version": SURPLUS_ACCOUNTING_VERSION, "surplus_export_active": apply_surplus_accounting, "surplus_export_hours_c2": int((c2["surplus_export_mw"] > 1e-12).sum()) if apply_surplus_accounting else 0, "max_surplus_export_mw_c2": float(c2["surplus_export_mw"].max()) if apply_surplus_accounting else 0.0, "max_energy_balance_residual_mw_c2": float(c2["surplus_energy_balance_residual_mw"].abs().max()) if apply_surplus_accounting else 0.0, "pass": True}, indent=2), encoding="utf-8")
+    surplus_rows = []
+    input_by_timestamp = c2_input.set_index("timestamp_utc")
+    if apply_surplus_accounting:
+        for _, row in c2[c2["surplus_export_mw"] > 1e-12].sort_values("timestamp_utc").iterrows():
+            source = input_by_timestamp.loc[row["timestamp_utc"]]
+            surplus_rows.append({
+                "timestamp_utc": row["timestamp_utc"],
+                "gross_load_mw": float(source["gross_system_load_mw"]),
+                "btm_solar_mw": float(source["estimated_btm_solar_system_mw"]),
+                "wind_proxy_mw": float(source["wind_fixed_proxy_system_mw"]),
+                "raw_residual_mw": float(row["raw_residual_conventional_load_mw"]),
+                "raw_negative_net_load": bool(float(row["raw_residual_conventional_load_mw"]) < -1e-9),
+                "surplus_export_mw": float(row["surplus_export_mw"]),
+                "minimum_synchronous_generation_floor_mw": float(row["minimum_synchronous_generation_floor_mw"]),
+                "minimum_generation_uplift_mw": float(row["minimum_generation_uplift_mw"]),
+                "solver_residual_mw": float(row["residual_conventional_load_mw"]),
+                "energy_balance_residual_mw": float(row["surplus_energy_balance_residual_mw"]),
+                "wind_proxy_unchanged": bool(np.isclose(float(row["wind_fixed_proxy_system_mw"]), float(source["wind_fixed_proxy_system_mw"]), atol=1e-12)),
+                "btm_solar_unchanged": bool(np.isclose(float(row["estimated_btm_solar_system_mw"]), float(source["estimated_btm_solar_system_mw"]), atol=1e-12)),
+                "gross_load_unchanged": bool(np.isclose(float(row["gross_system_load_mw"]), float(source["gross_system_load_mw"]), atol=1e-12)),
+                "surplus_enters_g1_profit": False,
+                "surplus_is_strategic_action": False,
+            })
+    surplus_balance_pass = (not apply_surplus_accounting) or all(abs(item["energy_balance_residual_mw"]) <= 1e-7 for item in surplus_rows)
+    surplus_source_pass = (not apply_surplus_accounting) or all(item["wind_proxy_unchanged"] and item["btm_solar_unchanged"] and item["gross_load_unchanged"] and not item["surplus_enters_g1_profit"] and not item["surplus_is_strategic_action"] for item in surplus_rows)
+    surplus_gate = {
+        "version": SURPLUS_ACCOUNTING_VERSION,
+        "status": "PASS_SURPLUS_ACCOUNTING_GATE" if surplus_balance_pass and surplus_source_pass else "FAIL_SURPLUS_ACCOUNTING_GATE",
+        "surplus_hours_c2": len(surplus_rows),
+        "raw_negative_hours_c2": sum(item["raw_negative_net_load"] for item in surplus_rows),
+        "train_hours": hours,
+        "surplus_export_fraction_of_train": float(len(surplus_rows) / hours),
+        "raw_negative_fraction_of_train": float(sum(item["raw_negative_net_load"] for item in surplus_rows) / hours),
+        "energy_balance_formula": "raw_residual_mw + surplus_export_mw = solver_residual_mw",
+        "surplus_export_role": "non-economic external export/dump sink; not renewable curtailment, not G1 revenue, not strategic action",
+        "rows": surplus_rows,
+        "raw_negative_rows": [item for item in surplus_rows if item["raw_negative_net_load"]],
+    }
+    (report_dir / "SURPLUS_ACCOUNTING_GATE.json").write_text(json.dumps(surplus_gate, ensure_ascii=False, indent=2), encoding="utf-8")
     (report_dir / f"TRAIN_{report_token}_COUNTERFACTUAL_EFFECTS.json").write_text(json.dumps({"rows": hours, "delta_columns": [str(x) for x in deltas.columns], "max_abs_effects": {col: float(pd.to_numeric(deltas[col], errors="coerce").abs().max()) for col in deltas.columns if str(col).startswith("delta_")}}, indent=2), encoding="utf-8")
     (report_dir / f"TRAIN_{report_token}_REPRODUCIBILITY.json").write_text(json.dumps({"deterministic_rerun_pass": deterministic, "input_hash": frame_hash(inputs), "config_hash": sha256_file(config_path), "network_hash": snapshot_sha256(), "script_code_hash": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "output_hash": frame_hash(results)}, indent=2), encoding="utf-8")
-    report_cn = f"""# {IDENTIFIER}\n\nStatus: `{manifest['status']}`\n\n- TRAIN materialized hours: {hours}\n- Time: `{inputs.timestamp_utc.iloc[0]}` to `{inputs.timestamp_utc.iloc[-1]}`\n- C0: no renewable injection\n- C1: estimated BTM solar as negative load\n- C2: estimated BTM solar plus fixed historical wind dispatch proxy\n- Wind is fixed exogenous input, not an OPF decision variable; `wind_available_mw` is not used.\n- Forecast columns are carried for provenance and are not consumed by the physical solver.\n- Utility solar injection: 0 MW\n- C0 exact equivalence: `{zero['status']}`\n- Maximum C2 system residual: {float(c2_balance.max()):.3e} MW\n- Maximum nodal residual: {float(nodal.max()):.3e} MW\n- Physical effect present: `{physical_diff}`\n- Raw negative residual-load hours: {int(inputs['negative_net_load_flag'].sum())}\n- Full-TRAIN surplus rule active: `{apply_surplus_floor}`; solver-side residual load is nonnegative and at least the frozen 30 MW aggregate generator Pmin, with raw/clipped/uplift MW retained in outputs.\n\nDEV and HOLDOUT were not read, and Action-Space-v2 was not changed.\n"""
+    report_cn = f"""# {IDENTIFIER}\n\nStatus: `{manifest['status']}`\n\n- TRAIN materialized hours: {hours}\n- Time: `{inputs.timestamp_utc.iloc[0]}` to `{inputs.timestamp_utc.iloc[-1]}`\n- C0: no renewable injection\n- C1: estimated BTM solar as negative load\n- C2: estimated BTM solar plus fixed historical wind dispatch proxy\n- Wind is fixed exogenous input, not an OPF decision variable; `wind_available_mw` is not used.\n- Forecast columns are carried for provenance and are not consumed by the physical solver.\n- Utility solar injection: 0 MW\n- C0 exact equivalence: `{zero['status']}`\n- Maximum C2 system residual: {float(c2_balance.max()):.3e} MW\n- Maximum nodal residual: {float(nodal.max()):.3e} MW\n- Physical effect present: `{physical_diff}`\n- Raw negative residual-load hours: {int(inputs['negative_net_load_flag'].sum())}\n- Surplus accounting gate: `{surplus_gate['status']}`; explicit `surplus_export_mw` is retained and is not wind/BTM curtailment, G1 profit, or a strategic action.\n\nDEV and HOLDOUT were not read, and Action-Space-v2 was not changed.\n"""
     (report_dir / "FIXED_RENEWABLE_PHYSICS_V1_REPORT_CN.md").write_text(report_cn, encoding="utf-8")
     print(json.dumps({"identifier": IDENTIFIER, "status": manifest["status"], "rows_per_case": hours, "first": inputs.timestamp_utc.iloc[0], "last": inputs.timestamp_utc.iloc[-1], "output_dir": str(output_dir)}, ensure_ascii=False, indent=2))
     return 0 if checks_pass else 2

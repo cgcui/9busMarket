@@ -1,6 +1,6 @@
 # Paper9Bus-ISONE-FixedRenewable-Physics-v1
 
-Status: `PASS_FIXED_RENEWABLE_PHYSICS_V1_8760H`
+Status: `PASS_FULL_TRAIN_FIXED_RENEWABLE_PHYSICS_V1`
 
 - TRAIN materialized hours: 8760
 - Time: `2024-06-01T00:00:00+00:00` to `2025-05-31T23:00:00+00:00`
@@ -15,6 +15,6 @@ Status: `PASS_FIXED_RENEWABLE_PHYSICS_V1_8760H`
 - Maximum nodal residual: 1.364e-12 MW
 - Physical effect present: `True`
 - Raw negative residual-load hours: 15
-- Full-TRAIN surplus rule active: `True`; solver-side residual load is nonnegative and at least the frozen 30 MW aggregate generator Pmin, with raw/clipped/uplift MW retained in outputs.
+- Surplus accounting gate: `PASS_SURPLUS_ACCOUNTING_GATE`; explicit `surplus_export_mw` is retained and is not wind/BTM curtailment, G1 profit, or a strategic action.
 
 DEV and HOLDOUT were not read, and Action-Space-v2 was not changed.
