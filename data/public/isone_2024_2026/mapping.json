@@ -1,0 +1,20 @@
+{
+  "mapping_id": "ISO2024_2026-GrossLoad-to-IEEE9-MedianRatio-v1",
+  "formula": "alpha_t = clip(gross_load_forecast_t / TRAIN_median_gross_load_forecast, 0.5, 1.5)",
+  "reference_train_median_mw": 12635.0,
+  "fit_split": "TRAIN",
+  "alpha_min": 0.5,
+  "alpha_max": 1.5,
+  "case9_base_load_mw_by_bus": {
+    "1": 0.0,
+    "2": 0.0,
+    "3": 0.0,
+    "4": 0.0,
+    "5": 90.0,
+    "6": 0.0,
+    "7": 100.0,
+    "8": 0.0,
+    "9": 125.0
+  },
+  "renewable_adjustment": "EXTERNAL_ONLY_NO_IEEE9_PHYSICAL_INJECTION"
+}

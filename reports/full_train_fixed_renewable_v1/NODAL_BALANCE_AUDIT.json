@@ -1,0 +1,6 @@
+{
+  "max_abs_nodal_residual_mw": 1.3642420526593924e-12,
+  "max_abs_system_residual_mw": 9.663381206337363e-13,
+  "p99_system_residual_mw": 6.252776074688882e-13,
+  "pass": true
+}

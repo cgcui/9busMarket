@@ -1,0 +1,9 @@
+{
+  "dispatch_max_diff": 0.0,
+  "G1_lmp_max_diff": 0.0,
+  "all_lmp_max_diff": 0.0,
+  "branch_flow_max_diff": 0.0,
+  "binding_status_diff_count": 0,
+  "G1_profit_max_diff": 0.0,
+  "status": "PASS_ZERO_RENEWABLE_EQUIVALENCE"
+}

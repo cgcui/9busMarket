@@ -1,0 +1,58 @@
+{
+  "schema_version": "Paper9Bus-ISONE2Y-RenewableAware-GrossLoad-Audit-v1",
+  "input_public_state": "data\\public\\isone_2y_public_energy_state.parquet",
+  "input_public_state_sha256": "0219fcb686ca202bb3f7856c5332c32a400bd75adb072926a6417ef6f433cb30",
+  "output_bridge": "data\\public\\paper9bus_isone2y_gross_load_bridge_v1.parquet",
+  "output_bridge_sha256": "0bffc979c3cf00086bb3afb0568cf257debb1c9604018f7b110e2bc3851ef542",
+  "mapping_file": "configs\\paper9bus_isone2y_renewable_aware_load_v1.json",
+  "mapping": {
+    "mapping_id": "ISO2Y-GrossLoad-to-IEEE9-MedianRatio-v1",
+    "formula": "alpha_t = clip(gross_load_forecast_t / TRAIN_median_gross_load_forecast, 0.5, 1.5)",
+    "reference_train_median_mw": 12680.0,
+    "alpha_min": 0.5,
+    "alpha_max": 1.5,
+    "fit_split": "TRAIN",
+    "case9_base_load_mw_by_bus": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 90.0,
+      "6": 0.0,
+      "7": 100.0,
+      "8": 0.0,
+      "9": 125.0
+    },
+    "case9_base_total_load_mw": 315.0,
+    "renewable_adjustment": "DISABLED_FORECASTS_NOT_ADDED",
+    "train_gross_load_stats": {
+      "rows": 8760,
+      "min_mw": 7830.001,
+      "median_mw": 12680.0,
+      "max_mw": 24500.001,
+      "p01_mw": 8759.999,
+      "p99_mw": 21310.0
+    }
+  },
+  "summary": {
+    "rows": 17496,
+    "train_rows": 8760,
+    "dev_rows": 8736,
+    "date_min": "2020-01-01",
+    "date_max": "2021-12-31",
+    "alpha_min": 0.6175079652996845,
+    "alpha_max": 1.5,
+    "alpha_clipped_low_rows": 0,
+    "alpha_clipped_high_rows": 612,
+    "renewable_forecast_values_used": false,
+    "net_load_forecast_used": false,
+    "status": "PASS_GROSS_LOAD_BRIDGE_RENEWABLE_INPUTS_DISABLED"
+  },
+  "physical_generators_changed": false,
+  "physical_network_changed": false,
+  "wind_forecast_values_used": false,
+  "solar_forecast_values_used": false,
+  "net_load_forecast_used": false,
+  "status": "PASS_GROSS_LOAD_BRIDGE_RENEWABLE_INPUTS_DISABLED",
+  "final_accessed": false
+}

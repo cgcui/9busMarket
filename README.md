@@ -98,6 +98,31 @@ python scripts/audit_public_state_sufficiency.py
 `data/public/` 与 `reports/PUBLIC_STATE_*`。在新的 public-state 数据通过独立
 审计前，不启动新的 SFT 或 GRPO。
 
+### 风电预测补充 v2
+
+用户提供的 ISO-NE `Seven Day Wind Power Forecast` 已整理为独立的
+`Public-Energy-State-v2-WindForecast`。它保留 IEEE-9 三机物理模型不变，且不把
+光伏缺失时的 `load - wind` 命名为 net load。由于原始 CSV 没有历史原始发布时间，
+风电字段目前是 `DATE_ONLY_NOT_CUTOFF_PROVEN`，不能直接作为严格 D-1 10:00 ET
+训练输入。
+
+详见 `WIND_FORECAST_V2_ADDENDUM_CN.md`，重新摄取和生成命令为：
+
+```powershell
+python scripts/ingest_isone_wind_forecast.py --source-dir "D:\code\ERCOTsimulation\data\风电预测"
+python scripts/build_public_energy_state_wind_v2.py
+```
+
+旧的 `data/public/isone_2y_public_energy_state.parquet` v1 保持不变。
+
+### Renewable-Aware 9-bus 负荷版本
+
+当前 9bus renewable-aware 版本先只接入 ISO-NE 总负荷，不使用风电/光伏预测：
+`ISO-NE hourly_load_mw -> TRAIN-only median-ratio alpha -> IEEE-9 bus 5/7/9`。
+生成入口是 `scripts/build_paper9bus_isone2y_load_bridge.py`，公式、产物和冻结边界见
+`RENEWABLE_AWARE_9BUS_PROBLEM_CN.md`。风光输入保留为后续可插拔接口，当前不会进入
+物理负荷或 net-load。
+
 ## 目录
 
 ```text

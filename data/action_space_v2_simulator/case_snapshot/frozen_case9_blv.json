@@ -1,0 +1,53 @@
+{
+  "case_id": "IEEE9-case9_blv",
+  "source_format": "MATPOWER case9_blv.m plus exported CSV tables",
+  "baseMVA": 100.0,
+  "reference_bus": 1,
+  "buses": [
+    {"bus_i": 1, "type": 3, "Pd": 0.0, "Qd": 0.0},
+    {"bus_i": 2, "type": 2, "Pd": 0.0, "Qd": 0.0},
+    {"bus_i": 3, "type": 2, "Pd": 0.0, "Qd": 0.0},
+    {"bus_i": 4, "type": 1, "Pd": 0.0, "Qd": 0.0},
+    {"bus_i": 5, "type": 1, "Pd": 90.0, "Qd": 30.0},
+    {"bus_i": 6, "type": 1, "Pd": 0.0, "Qd": 0.0},
+    {"bus_i": 7, "type": 1, "Pd": 100.0, "Qd": 35.0},
+    {"bus_i": 8, "type": 1, "Pd": 0.0, "Qd": 0.0},
+    {"bus_i": 9, "type": 1, "Pd": 125.0, "Qd": 50.0}
+  ],
+  "generators": [
+    {"generator_id": "G1", "bus": 1, "pmin_mw": 10.0, "pmax_mw": 500.0, "true_marginal_cost_usd_per_mwh": 20.0, "strategic_role": "focal"},
+    {"generator_id": "G2", "bus": 2, "pmin_mw": 10.0, "pmax_mw": 400.0, "true_marginal_cost_usd_per_mwh": 10.0, "strategic_role": "truthful"},
+    {"generator_id": "G3", "bus": 3, "pmin_mw": 10.0, "pmax_mw": 700.0, "true_marginal_cost_usd_per_mwh": 30.0, "strategic_role": "hidden_opponent"}
+  ],
+  "branches": [
+    {"branch_id": 1, "from_bus": 1, "to_bus": 4, "x_pu": 0.0576, "rate_a_mw": 250.0, "status": 1, "tap": 1.0, "phase_shift_deg": 0.0},
+    {"branch_id": 2, "from_bus": 4, "to_bus": 5, "x_pu": 0.092, "rate_a_mw": 250.0, "status": 1, "tap": 1.0, "phase_shift_deg": 0.0},
+    {"branch_id": 3, "from_bus": 5, "to_bus": 6, "x_pu": 0.17, "rate_a_mw": 150.0, "status": 1, "tap": 1.0, "phase_shift_deg": 0.0},
+    {"branch_id": 4, "from_bus": 3, "to_bus": 6, "x_pu": 0.0586, "rate_a_mw": 300.0, "status": 1, "tap": 1.0, "phase_shift_deg": 0.0},
+    {"branch_id": 5, "from_bus": 6, "to_bus": 7, "x_pu": 0.1008, "rate_a_mw": 150.0, "status": 1, "tap": 1.0, "phase_shift_deg": 0.0},
+    {"branch_id": 6, "from_bus": 7, "to_bus": 8, "x_pu": 0.072, "rate_a_mw": 250.0, "status": 1, "tap": 1.0, "phase_shift_deg": 0.0},
+    {"branch_id": 7, "from_bus": 8, "to_bus": 2, "x_pu": 0.0625, "rate_a_mw": 250.0, "status": 1, "tap": 1.0, "phase_shift_deg": 0.0},
+    {"branch_id": 8, "from_bus": 8, "to_bus": 9, "x_pu": 0.161, "rate_a_mw": 250.0, "status": 1, "tap": 1.0, "phase_shift_deg": 0.0},
+    {"branch_id": 9, "from_bus": 9, "to_bus": 4, "x_pu": 0.085, "rate_a_mw": 250.0, "status": 1, "tap": 1.0, "phase_shift_deg": 0.0}
+  ],
+  "load_state_construction": {
+    "source": "data/benchmark/cell_bank.parquet",
+    "formula": "load_bus_i = alpha * frozen_case_bus_Pd_i",
+    "base_load_mw_by_bus": {"1": 0.0, "2": 0.0, "3": 0.0, "4": 0.0, "5": 90.0, "6": 0.0, "7": 100.0, "8": 0.0, "9": 125.0},
+    "state_id_source": "frozen cell bank unique state_id rows"
+  },
+  "strategic_identity": {"focal": "G1", "truthful": "G2", "hidden_opponent": "G3"},
+  "legacy_grids": {"g1": [1.0, 1.05, 1.1, 1.2, 1.3, 1.5], "g3": [1.0, 1.05, 1.1, 1.2, 1.3, 1.5]},
+  "provenance": {
+    "frozen_source_root": "ercot_llm_bidding/benchmarks/prat_strategic_bidding/case9",
+    "source_files": {
+      "case9_blv.m": "90b53df56816c127246136d4403aba3b26cec5999b2b950fb2ba78d6c1fb4e6bf",
+      "baseMVA_9bus.csv": "df5ac1ce936c1448417fc54e28d34927b824a9cd53ef288f47e540226c221c4d",
+      "bus_9bus.csv": "a5ff17d9fd903ec40f96883799a166008c4b67ddcd0ec2c1666c4b11b1e7547",
+      "gen_9bus.csv": "29044faad707e2f5dbdae7f31e6461fe2ce91b1eb7e896aec52f9ee07e72ecc5",
+      "branch_9bus.csv": "406b1f7c59d34d8d8156a12b4463ee6e386c2f5999a526ec9622a5ee4abe1f94",
+      "gencost_9bus.csv": "1e68ee7b7d8a531a556a0e0230eca192b2c7559e76844fc6b7eb46020641bd7bf"
+    },
+    "validation": "snapshot values are field-level equal to the frozen case tables; no generic MATPOWER case9 substitution"
+  }
+}

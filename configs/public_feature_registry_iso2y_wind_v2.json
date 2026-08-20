@@ -1,0 +1,78 @@
+{
+  "schema_version": "ISO2Y-Public-Energy-State-v2-WindForecast",
+  "environment": "ISO-NE-2020-2021-public-pack+wind-forecast",
+  "decision_time_rule": "target local date D, cutoff D-1 10:00 America/New_York",
+  "base_state_file": "data/public/isone_2y_public_energy_state.parquet",
+  "wind_forecast_file": "data/public/isone_wind_forecast_2020_2021.parquet",
+  "fields": {
+    "day_ahead_load_forecast.hourly_load_mw": {
+      "status": "LEGAL_PUBLIC_DIRECT",
+      "source_column": "hourly_load_mw",
+      "unit": "MW",
+      "physical_meaning": "ISO-NE day-ahead total load forecast",
+      "availability_timestamp": "forecast publication cutoff enforced"
+    },
+    "renewable_forecast.wind_mw": {
+      "status": "PUBLIC_EX_ANTE_DATE_ONLY_NOT_CUTOFF_PROVEN",
+      "source_file": "data/public/isone_wind_forecast_2020_2021.parquet",
+      "source_column": "wind_forecast_mw",
+      "unit": "MW",
+      "physical_meaning": "ISO-NE seven-day report Day 2 wind forecast for target date D",
+      "observation_timestamp": "target operating hour",
+      "availability_timestamp": "report date D-1 only; original publication time missing",
+      "direct_or_derived": "direct",
+      "derivation_rule": "select report dated D-1 and Day 2 column; preserve source HE",
+      "leakage_status": "date-addressable public forecast; strict D-1 10 ET availability is not proven"
+    },
+    "renewable_forecast.wind_provenance": {
+      "status": "LEGAL_PUBLIC_PROVENANCE",
+      "source_file": "reports/WIND_FORECAST_INGESTION_AUDIT.json",
+      "source_columns": "forecast_report_date/publication_timestamp_status/cutoff_eligibility/source_member_sha256",
+      "unit": "metadata",
+      "physical_meaning": "source and cutoff limitation metadata",
+      "leakage_status": "no download timestamp treated as publication timestamp"
+    },
+    "renewable_forecast.solar_mw": {
+      "status": "SOURCE_ARCHIVE_PRESENT_NO_NUMERIC_VALUES",
+      "source_file": "reports/SOLAR_FORECAST_INGESTION_AUDIT.json",
+      "source_column": "numeric_value_count=0",
+      "unit": "N/A",
+      "physical_meaning": "solar forecast source was audited but all report data rows are empty",
+      "leakage_status": "must not convert empty reports to zero or fabricate values"
+    },
+    "renewable_forecast.net_load_mw": {
+      "status": "NOT_EMITTED_SOLAR_SOURCE_EMPTY",
+      "source_file": "none",
+      "source_column": "none",
+      "unit": "N/A",
+      "physical_meaning": "load - wind - solar forecast",
+      "leakage_status": "not computed from incomplete renewable inputs"
+    },
+    "own_generator": {
+      "status": "UNAVAILABLE",
+      "source_file": "none with focal 9-bus identity",
+      "source_column": "none",
+      "unit": "N/A",
+      "physical_meaning": "focal generator dispatch/utilization/headroom/LMP",
+      "leakage_status": "no identity mapping"
+    },
+    "future_realized_load_lmp_dispatch": {
+      "status": "HIDDEN_PRIVATE",
+      "source_file": "not emitted",
+      "source_column": "future realized values",
+      "unit": "N/A",
+      "physical_meaning": "future outcomes after decision time",
+      "leakage_status": "forbidden"
+    },
+    "payoff_oracle_regret_action": {
+      "status": "ORACLE_DERIVED",
+      "source_file": "not emitted",
+      "source_column": "payoff/regret/oracle action",
+      "unit": "N/A",
+      "physical_meaning": "strategic target/evaluation information",
+      "leakage_status": "forbidden"
+    }
+  },
+  "unavailable_policy": "omit unavailable fields; do not fill solar or net load; do not use wind in strict cutoff training until timestamp audit passes",
+  "final_accessed": false
+}

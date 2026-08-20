@@ -1,0 +1,57 @@
+{
+  "schema_version": "Paper9Bus-ISONE2Y-RenewableAware-GrossLoad-v1",
+  "environment": "IEEE-9 frozen network + ISO-NE 2020-2021 public gross load",
+  "physical_case": "IEEE-9 case9_blv; three generators G1/G2/G3 frozen",
+  "public_state_file": "data\\public\\isone_2y_public_energy_state.parquet",
+  "public_state_sha256": "0219fcb686ca202bb3f7856c5332c32a400bd75adb072926a6417ef6f433cb30",
+  "mapping": {
+    "mapping_id": "ISO2Y-GrossLoad-to-IEEE9-MedianRatio-v1",
+    "formula": "alpha_t = clip(gross_load_forecast_t / TRAIN_median_gross_load_forecast, 0.5, 1.5)",
+    "reference_train_median_mw": 12680.0,
+    "alpha_min": 0.5,
+    "alpha_max": 1.5,
+    "fit_split": "TRAIN",
+    "case9_base_load_mw_by_bus": {
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 90.0,
+      "6": 0.0,
+      "7": 100.0,
+      "8": 0.0,
+      "9": 125.0
+    },
+    "case9_base_total_load_mw": 315.0,
+    "renewable_adjustment": "DISABLED_FORECASTS_NOT_ADDED",
+    "train_gross_load_stats": {
+      "rows": 8760,
+      "min_mw": 7830.001,
+      "median_mw": 12680.0,
+      "max_mw": 24500.001,
+      "p01_mw": 8759.999,
+      "p99_mw": 21310.0
+    }
+  },
+  "renewable_interface": {
+    "wind_forecast_input": "reserved_not_used",
+    "solar_forecast_input": "reserved_not_used",
+    "net_load_formula": "gross_load - wind - solar, enabled only when both complete vectors are present",
+    "current_mode": "DISABLED_FORECASTS_NOT_ADDED"
+  },
+  "outputs": {
+    "bridge_file": "data\\public\\paper9bus_isone2y_gross_load_bridge_v1.parquet",
+    "bus_load_columns": [
+      "load_bus_1_mw",
+      "load_bus_2_mw",
+      "load_bus_3_mw",
+      "load_bus_4_mw",
+      "load_bus_5_mw",
+      "load_bus_6_mw",
+      "load_bus_7_mw",
+      "load_bus_8_mw",
+      "load_bus_9_mw"
+    ]
+  },
+  "final_accessed": false
+}
